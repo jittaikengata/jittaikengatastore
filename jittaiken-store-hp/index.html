@@ -374,18 +374,16 @@
       display: flex;
       overflow-x: auto;
       scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
       gap: 16px;
       padding-bottom: 8px;
       scrollbar-width: none;
-      -webkit-overflow-scrolling: touch;
     }
 
-    .brand-slider::-webkit-scrollbar {
-      display: none;
-    }
+    .brand-slider::-webkit-scrollbar { display: none; }
 
     .brand-card {
-      flex: 0 0 360px;
+      flex: 0 0 340px;
       scroll-snap-align: start;
       border-radius: 20px;
       overflow: hidden;
@@ -401,7 +399,7 @@
 
     .brand-img {
       width: 100%;
-      height: 320px;
+      height: 280px;
       background-size: cover;
       background-position: center;
       background-color: var(--gray-bg);
@@ -448,18 +446,10 @@
       transition: background 0.2s;
     }
 
-    .brand-slider-btn:hover {
-      background: #fff;
-    }
-
+    .brand-slider-btn:hover { background: #fff; }
     .brand-slider-btn.prev { left: -22px; }
     .brand-slider-btn.next { right: -22px; }
-
-    .brand-slider-btn svg {
-      width: 20px;
-      height: 20px;
-      color: var(--black);
-    }
+    .brand-slider-btn svg { width: 20px; height: 20px; color: var(--black); }
 
     /* ─── STORE AREAS ─── */
     .areas-grid {
@@ -1139,12 +1129,56 @@
       .divider { max-width: calc(100% - 56px); }
     }
 
-    @media (max-width: 540px) {
-      .concept-grid { grid-template-columns: 1fr; }
-      .value-grid { grid-template-columns: 1fr; }
-      .toc-grid { grid-template-columns: repeat(4, 1fr); }
-      .hero-buttons { flex-direction: column; }
+    @media (max-width: 768px) {
+      html, body { overflow-x: hidden; }
+      nav { padding: 0 16px; }
+      section, .audience, .open-notice { padding: 64px 24px; }
+      footer { padding: 40px 24px 28px; }
+      .hero-bg-text { padding: 40px 24px; }
+      .hero-bg-text h1 { font-size: clamp(22px, 6vw, 40px); }
+      .hero-bg-text .hero-sub { font-size: 15px; }
+      .hero-buttons { flex-direction: column; gap: 10px; }
+      .btn-hero, .btn-hero-filled { width: 100%; justify-content: center; }
+      .section-title { font-size: clamp(22px, 6vw, 36px); }
+      .footer-inner { grid-template-columns: 1fr; gap: 24px; }
+      .footer-col { text-align: left; }
+      .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
       .strip-track img { width: calc(100% / 2); height: 160px; }
+      .divider { max-width: calc(100% - 48px); }
+
+      /* グリッドをflex横スクロールに変換（カードサイズはそのまま） */
+      .concept-grid {
+        display: flex;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        gap: 12px;
+        padding-bottom: 12px;
+      }
+      .concept-grid::-webkit-scrollbar { display: none; }
+      .concept-card { flex: 0 0 220px; }
+
+      .areas-grid {
+        display: flex;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        gap: 16px;
+        padding-bottom: 12px;
+      }
+      .areas-grid::-webkit-scrollbar { display: none; }
+      .area-card { flex: 0 0 260px; }
+
+      .toc-grid {
+        display: flex;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        gap: 12px;
+        padding-bottom: 12px;
+      }
+      .toc-grid::-webkit-scrollbar { display: none; }
+      .toc-card { flex: 0 0 220px; }
     }
   </style>
 </head>
@@ -1155,11 +1189,11 @@
     <a href="#" class="nav-logo">実体験型ストア</a>
     <ul class="nav-links">
       <li><a href="#concept">コンセプト</a></li>
-      <li><a href="#brandlist">ブランド</a></li>
-      <li><a href="#store">ストア</a></li>
+      <li><a href="#store">ストアを見る</a></li>
       <li><a href="#salon">提携美容室</a></li>
+      <li><a href="#brands">ブランド出品について</a></li>
       <li><a href="#store" class="nav-cta">オンラインストア ↗</a></li>
-      <li><a href="https://takakubomasahiro.com/contact" target="_blank" class="nav-cta">お問い合わせ ↗</a></li>
+      <li><a href="#contact" class="nav-cta">お問い合わせ ↗</a></li>
     </ul>
   </nav>
 
@@ -1226,7 +1260,7 @@
   <div class="divider"></div>
 
   <!-- BRAND LIST -->
-  <section id="brandlist" style="padding: 96px 48px; background: var(--gray-bg);">
+  <section style="padding: 96px 48px; background: var(--gray-bg);">
     <div class="section-inner">
       <p class="section-label">Brands</p>
       <h2 class="section-title">ブランドリスト</h2>
@@ -1239,86 +1273,55 @@
         <button class="brand-slider-btn next" onclick="slideBrands(1)" aria-label="次へ">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
         </button>
-
         <div class="brand-slider" id="brandSlider">
           <div class="brand-card fade-in">
-            <div class="brand-img" style="background-image: url('owbyetori.png');">
-              <div class="brand-name-overlay">
-                <h3>OW BYE TORI</h3>
-                <p>ヘアケア・スタイリング</p>
-              </div>
-            </div>
-          </div>
-          <div class="brand-card fade-in">
-            <div class="brand-img" style="background-image: url('sinn.png');">
-              <div class="brand-name-overlay">
-                <h3>SINN PURETÉ</h3>
-                <p>マインドフルビューティー</p>
-              </div>
-            </div>
-          </div>
-          <div class="brand-card fade-in">
-            <div class="brand-img" style="background-image: url('ironowa.png');">
-              <div class="brand-name-overlay">
-                <h3>IRONOWA</h3>
-                <p>カシミアヘアケア</p>
-              </div>
-            </div>
-          </div>
-          <div class="brand-card fade-in">
-            <div class="brand-img" style="background-image: url('1dk.png');">
-              <div class="brand-name-overlay">
-                <h3>1DK</h3>
-                <p>リペアヘアケア</p>
-              </div>
+            <div class="brand-img" style="background-image: url('refa2.png');">
+              <div class="brand-name-overlay"><h3>ReFa</h3><p>ヘアケア美容機器</p></div>
             </div>
           </div>
           <div class="brand-card fade-in">
             <div class="brand-img" style="background-image: url('theo.png');">
-              <div class="brand-name-overlay">
-                <h3>THÉO standard</h3>
-                <p>サロン専売ヘアケア</p>
-              </div>
+              <div class="brand-name-overlay"><h3>THÉO standard</h3><p>サロン専売ヘアケア</p></div>
+            </div>
+          </div>
+          <div class="brand-card fade-in">
+            <div class="brand-img" style="background-image: url('sinn.png');">
+              <div class="brand-name-overlay"><h3>SINN PURETÉ</h3><p>マインドフルビューティー</p></div>
             </div>
           </div>
           <div class="brand-card fade-in">
             <div class="brand-img" style="background-image: url('wella.png');">
-              <div class="brand-name-overlay">
-                <h3>Wella Professionals</h3>
-                <p>ヘアケア・トリートメント</p>
-              </div>
-            </div>
-          </div>
-          <div class="brand-card fade-in">
-            <div class="brand-img" style="background-image: url('o-bron.png');">
-              <div class="brand-name-overlay">
-                <h3>O BRON &amp; HAIR</h3>
-                <p>ビューティーケア</p>
-              </div>
-            </div>
-          </div>
-          <div class="brand-card fade-in">
-            <div class="brand-img" style="background-image: url('refa2.png');">
-              <div class="brand-name-overlay">
-                <h3>ReFa</h3>
-                <p>ヘアケア美容機器</p>
-              </div>
-            </div>
-          </div>
-          <div class="brand-card fade-in">
-            <div class="brand-img" style="background-image: url('arimino.png');">
-              <div class="brand-name-overlay">
-                <h3>ARIMINO SPRINAGE</h3>
-                <p>サロン専売ヘアケア</p>
-              </div>
+              <div class="brand-name-overlay"><h3>Wella Professionals</h3><p>ヘアケア・トリートメント</p></div>
             </div>
           </div>
           <div class="brand-card fade-in">
             <div class="brand-img" style="background-image: url('eans.png');">
-              <div class="brand-name-overlay">
-                <h3>EANS the Salon</h3>
-                <p>サロン専売シャンプー</p>
-              </div>
+              <div class="brand-name-overlay"><h3>EANS the Salon</h3><p>サロン専売シャンプー</p></div>
+            </div>
+          </div>
+          <div class="brand-card fade-in">
+            <div class="brand-img" style="background-image: url('owbyetori.png');">
+              <div class="brand-name-overlay"><h3>OW BYE TORI</h3><p>ヘアケア・スタイリング</p></div>
+            </div>
+          </div>
+          <div class="brand-card fade-in">
+            <div class="brand-img" style="background-image: url('ironowa.png');">
+              <div class="brand-name-overlay"><h3>IRONOWA</h3><p>カシミアヘアケア</p></div>
+            </div>
+          </div>
+          <div class="brand-card fade-in">
+            <div class="brand-img" style="background-image: url('1dk.png');">
+              <div class="brand-name-overlay"><h3>1DK</h3><p>リペアヘアケア</p></div>
+            </div>
+          </div>
+          <div class="brand-card fade-in">
+            <div class="brand-img" style="background-image: url('o-bron.png');">
+              <div class="brand-name-overlay"><h3>O BRON &amp; HAIR</h3><p>ビューティーケア</p></div>
+            </div>
+          </div>
+          <div class="brand-card fade-in">
+            <div class="brand-img" style="background-image: url('arimino.png');">
+              <div class="brand-name-overlay"><h3>ARIMINO SPRINAGE</h3><p>サロン専売ヘアケア</p></div>
             </div>
           </div>
         </div>
@@ -1532,17 +1535,14 @@
       <div class="footer-brand">
         <h3>実体験型ストア</h3>
         <p>
-          サロン専売品を中心とした体験型ショップ。
-        </p>
-        <p style="margin-top: 12px;">
-          住所<br />
-          福岡県福岡市博多区竹4-14-10<br />
-          JR竹下駅　徒歩3分
+          サロン専売品を中心とした体験型ショップ。<br />
+          美容室 Aooo Hair に併設。福岡県福岡市博多区。
         </p>
       </div>
       <div class="footer-col">
         <h4>ご利用案内</h4>
         <ul>
+          <li><a href="#brands" onclick="setTimeout(function(){switchTab('toc', document.querySelectorAll('.tab-btn')[0])},100)">お客様の方へ</a></li>
           <li><a href="#brands" onclick="setTimeout(function(){switchTab('tob', document.querySelectorAll('.tab-btn')[1])},100)">ブランド出品について</a></li>
           <li><a href="https://beauty.hotpepper.jp/slnH000678849/" target="_blank">Aooohair 予約ページ</a></li>
           <li><a href="https://takakubomasahiro.com/contact" target="_blank">お問い合わせ</a></li>
