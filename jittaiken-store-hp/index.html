@@ -1137,8 +1137,8 @@
       .hero-bg-text { padding: 40px 24px; }
       .hero-bg-text h1 { font-size: clamp(22px, 6vw, 40px); }
       .hero-bg-text .hero-sub { font-size: 15px; }
-      .hero-buttons { flex-direction: column; gap: 10px; }
-      .btn-hero, .btn-hero-filled { width: 100%; justify-content: center; }
+      .hero-buttons { flex-direction: row; gap: 8px; flex-wrap: wrap; }
+      .btn-hero, .btn-hero-filled { font-size: 12px; padding: 9px 16px; }
       .section-title { font-size: clamp(22px, 6vw, 36px); }
       .footer-inner { grid-template-columns: 1fr; gap: 24px; }
       .footer-col { text-align: left; }
@@ -1394,17 +1394,17 @@
           <h2 style="font-size: clamp(32px, 4vw, 48px); font-weight: 700; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 10px;">Aooo Hair</h2>
 
           <!-- 評価バッジ -->
-          <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 10px;">
-            <span style="font-size: 14px; font-weight: 900; color: var(--gray-1);">口コミ評価</span>
-            <span style="font-size: 28px; font-weight: 900; color: var(--gray-1); letter-spacing: -0.02em;">4.96</span>
-            <span style="display: inline-flex; gap: 2px; align-items: center; font-size: 20px;">
+          <div style="display: flex; align-items: center; gap: 8px; flex-wrap: nowrap; margin-bottom: 10px; white-space: nowrap;">
+            <span style="font-size: 13px; font-weight: 900; color: var(--gray-1);">口コミ評価</span>
+            <span style="font-size: 22px; font-weight: 900; color: var(--gray-1); letter-spacing: -0.02em;">4.96</span>
+            <span style="display: inline-flex; gap: 1px; align-items: center; font-size: 17px;">
               <span style="color: var(--gray-1);">★</span>
               <span style="color: var(--gray-1);">★</span>
               <span style="color: var(--gray-1);">★</span>
               <span style="color: var(--gray-1);">★</span>
               <span style="background: linear-gradient(to right, var(--gray-1) 50%, var(--gray-4) 50%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">★</span>
             </span>
-            <span style="font-size: 14px; font-weight: 700; color: var(--gray-3);">（204件）</span>
+            <span style="font-size: 13px; font-weight: 700; color: var(--gray-3);">（204件）</span>
           </div>
 
           <!-- 営業時間 -->
