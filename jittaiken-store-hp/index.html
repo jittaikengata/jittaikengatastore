@@ -1,0 +1,1612 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>実体験型ストア — サロン専売品を、試して買える場所</title>
+  <meta name="description" content="サロン専売品を中心とした実体験型ストア。全商品を試してから購入できる、美容室 Aooohair 併設のショップ。ブランドの出品も受け付けています。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black:   #111111;
+      --gray-1:  #3a3a3c;
+      --gray-2:  #6e6e73;
+      --gray-3:  #86868b;
+      --gray-4:  #aeaeb2;
+      --gray-bg: #f5f5f7;
+      --gray-line: rgba(0,0,0,0.09);
+      --white:   #ffffff;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      color: var(--black);
+      background: var(--gray-bg);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 28px;
+      background: rgba(255,255,255,0.88);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid var(--gray-line);
+    }
+
+    .nav-logo {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--black);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 13px;
+      color: var(--gray-2);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--black); }
+
+    .nav-cta {
+      font-size: 13px;
+      font-weight: 400;
+      color: #0071e3 !important;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-cta:hover { color: #0077ed !important; opacity: 1; }
+
+    /* ─── HERO ─── */
+    .hero {
+      padding: 0 !important;
+      margin: 0;
+      width: 100%;
+      height: 100vh;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+    }
+
+    /* Hero video */
+    .hero-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+
+    .hero-overlay { display: none; }
+
+    .hero-bg { display: none; }
+
+    .hero-bg-text {
+      position: relative;
+      z-index: 2;
+      padding: 60px 80px;
+      width: 100%;
+    }
+
+    .hero-text-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .hero-bg-text .hero-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 14px;
+    }
+
+    .hero-bg-text h1 {
+      font-size: clamp(28px, 3.5vw, 44px);
+      font-weight: 600;
+      line-height: 1.15;
+      letter-spacing: -0.025em;
+      color: var(--white);
+      margin-bottom: 18px;
+    }
+
+    .hero-bg-text .hero-sub {
+      font-size: 17px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.8);
+      max-width: 540px;
+      line-height: 1.75;
+      margin-bottom: 40px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 5px 13px;
+      background: var(--gray-bg);
+      color: var(--gray-1);
+      font-size: 11px;
+      font-weight: 500;
+      border-radius: 20px;
+      margin-bottom: 28px;
+      letter-spacing: 0.06em;
+      border: 1px solid var(--gray-line);
+    }
+
+    .hero-badge-dot {
+      width: 6px; height: 6px;
+      background: var(--gray-3);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.35; }
+    }
+
+    .hero-sub {
+      font-size: 17px;
+      font-weight: 300;
+      color: var(--gray-2);
+      line-height: 1.75;
+      margin-bottom: 40px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      padding: 13px 26px;
+      background: var(--black);
+      color: var(--white);
+      border-radius: 30px;
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-primary:hover { opacity: 0.78; transform: scale(1.02); }
+
+    .btn-secondary {
+      padding: 13px 26px;
+      background: transparent;
+      color: var(--black);
+      border: 1.5px solid rgba(0,0,0,0.2);
+      border-radius: 30px;
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: border-color 0.2s, transform 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-secondary:hover { border-color: rgba(0,0,0,0.5); transform: scale(1.02); }
+
+    /* Hero image collage */
+    .hero-images {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 460px;
+      gap: 10px;
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .hero-images img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: grayscale(10%);
+      transition: filter 0.4s, transform 0.4s;
+    }
+
+    .hero-images img:hover {
+      filter: grayscale(0%);
+      transform: scale(1.03);
+    }
+
+    .hero-images > div { overflow: hidden; }
+
+    /* ─── DIVIDER ─── */
+    .divider {
+      height: 1px;
+      background: var(--gray-line);
+      margin: 0 auto;
+      max-width: calc(100% - 160px);
+    }
+
+    /* ─── SECTION BASE ─── */
+    section { padding: 96px 48px; }
+
+    .section-inner { max-width: 1200px; margin: 0 auto; }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gray-3);
+      margin-bottom: 14px;
+    }
+
+    .section-title {
+      font-size: clamp(28px, 3.5vw, 44px);
+      font-weight: 600;
+      letter-spacing: -0.025em;
+      line-height: 1.15;
+      margin-bottom: 18px;
+    }
+
+    .section-desc {
+      font-size: 17px;
+      font-weight: 300;
+      color: var(--gray-2);
+      max-width: 540px;
+      line-height: 1.75;
+    }
+
+    /* ─── PHOTO STRIP ─── */
+    .photo-strip {
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .strip-track {
+      display: flex;
+      gap: 0;
+    }
+
+    .strip-track img {
+      width: calc(100% / 5);
+      height: 260px;
+      object-fit: cover;
+      display: block;
+      filter: grayscale(20%);
+      transition: filter 0.4s, transform 0.4s;
+      flex-shrink: 0;
+    }
+
+    .strip-track img:hover {
+      filter: grayscale(0%);
+      transform: scale(1.04);
+      z-index: 1;
+      position: relative;
+    }
+
+    /* ─── CONCEPT ─── */
+    .concept { background: var(--gray-bg); }
+
+    .concept-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(160px, 1fr));
+      gap: 16px;
+      margin-top: 56px;
+    }
+
+    .card-icon {
+      width: 40px;
+      height: 40px;
+      margin-bottom: 18px;
+      color: var(--gray-1);
+    }
+    .card-icon svg { width: 100%; height: 100%; }
+
+    .concept-card {
+      background: var(--white);
+      border: 1px solid var(--gray-line);
+      border-radius: 16px;
+      padding: 36px 28px;
+      transition: box-shadow 0.3s, transform 0.3s;
+    }
+
+    .concept-card:hover {
+      box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+      transform: translateY(-4px);
+    }
+
+    .concept-num {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--gray-4);
+      margin-bottom: 20px;
+      line-height: 1;
+    }
+
+    .concept-card h3 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .concept-card p {
+      font-size: 13px;
+      color: var(--gray-2);
+      line-height: 1.8;
+    }
+
+    /* ─── BRAND LIST ─── */
+    .brand-slider-wrap {
+      position: relative;
+      margin-top: 48px;
+    }
+
+    .brand-slider {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      gap: 16px;
+      padding-bottom: 8px;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .brand-slider::-webkit-scrollbar {
+      display: none;
+    }
+
+    .brand-card {
+      flex: 0 0 360px;
+      scroll-snap-align: start;
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .brand-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+    }
+
+    .brand-img {
+      width: 100%;
+      height: 320px;
+      background-size: cover;
+      background-position: center;
+      background-color: var(--gray-bg);
+      position: relative;
+    }
+
+    .brand-name-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 48px 24px 24px;
+      background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 100%);
+    }
+
+    .brand-name-overlay h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 2px;
+      letter-spacing: 0.02em;
+    }
+
+    .brand-name-overlay p {
+      font-size: 12px;
+      color: rgba(255,255,255,0.75);
+    }
+
+    .brand-slider-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.9);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+      z-index: 10;
+      transition: background 0.2s;
+    }
+
+    .brand-slider-btn:hover {
+      background: #fff;
+    }
+
+    .brand-slider-btn.prev { left: -22px; }
+    .brand-slider-btn.next { right: -22px; }
+
+    .brand-slider-btn svg {
+      width: 20px;
+      height: 20px;
+      color: var(--black);
+    }
+
+    /* ─── STORE AREAS ─── */
+    .areas-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 56px;
+    }
+
+    .area-card {
+      border: 1px solid var(--gray-line);
+      border-radius: 16px;
+      padding: 36px 30px;
+      background: var(--white);
+      transition: box-shadow 0.3s, transform 0.3s;
+    }
+
+    .area-card:hover {
+      box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+      transform: translateY(-4px);
+    }
+
+    .area-tag {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 20px;
+      margin-bottom: 18px;
+      background: var(--gray-bg);
+      color: var(--gray-2);
+      border: 1px solid var(--gray-line);
+    }
+
+    .area-card h3 {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .area-desc {
+      font-size: 12px;
+      color: var(--gray-3);
+      margin-bottom: 20px;
+    }
+
+    .area-items {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      border-top: 1px solid var(--gray-line);
+      padding-top: 20px;
+    }
+
+    .area-items li {
+      font-size: 13px;
+      color: var(--gray-1);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .area-items li::before {
+      content: '';
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--gray-4);
+      flex-shrink: 0;
+    }
+
+    /* ─── VALUE ─── */
+    .value { background: var(--black); color: var(--white); }
+
+    .value .section-label { color: var(--gray-3); }
+    .value .section-title { color: var(--white); }
+    .value .section-desc { color: rgba(255,255,255,0.45); }
+
+    .value-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      margin-top: 64px;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      overflow: hidden;
+      background: rgba(255,255,255,0.08);
+    }
+
+    .value-item {
+      padding: 40px 28px;
+      background: var(--black);
+      transition: background 0.2s;
+    }
+
+    .value-item:hover { background: #1c1c1e; }
+
+    .value-num {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--gray-3);
+      letter-spacing: 0.08em;
+      margin-bottom: 20px;
+    }
+
+    .value-item h3 {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+
+    .value-item p {
+      font-size: 13px;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.75;
+    }
+
+    /* ─── SALON ─── */
+    .salon { background: var(--gray-bg); }
+
+    /* サロン写真スライドショー */
+    .salon-slideshow {
+      position: relative;
+      height: 480px;
+      overflow: hidden;
+      border-radius: 12px;
+    }
+
+    .salon-slide {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      transition: opacity 1.2s ease;
+    }
+
+    .salon-slide.active { opacity: 1; }
+
+    .salon-dots {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 8px;
+      z-index: 10;
+    }
+
+    .salon-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(255,255,255,0.5);
+      cursor: pointer;
+      padding: 0;
+      transition: background 0.3s;
+    }
+
+    .salon-dot.active { background: #fff; }
+
+    .salon-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255,255,255,0.7);
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      font-size: 16px;
+      cursor: pointer;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+      backdrop-filter: blur(4px);
+    }
+
+    .salon-arrow:hover { background: rgba(255,255,255,0.95); }
+    .salon-prev { left: 20px; }
+    .salon-next { right: 20px; }
+
+    .salon-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+      margin-top: 56px;
+    }
+
+    .salon-photo-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 220px 160px;
+      gap: 8px;
+      border-radius: 18px;
+      overflow: hidden;
+    }
+
+    .salon-photo-grid .main-photo {
+      grid-column: 1 / 3;
+    }
+
+    .salon-photo-grid img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: grayscale(10%);
+      transition: filter 0.4s;
+    }
+
+    .salon-photo-grid img:hover { filter: grayscale(0%); }
+
+    .salon-photo-grid > div { overflow: hidden; border-radius: 4px; }
+
+    .salon-info h3 {
+      font-size: 32px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+
+    .salon-info .salon-sub {
+      font-size: 14px;
+      color: var(--gray-3);
+      margin-bottom: 32px;
+    }
+
+    .salon-flows {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+
+    .salon-flow {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 18px 20px;
+      background: var(--gray-bg);
+      border-radius: 12px;
+      border: 1px solid var(--gray-line);
+    }
+
+    .flow-num {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--gray-3);
+      letter-spacing: 0.06em;
+      padding-top: 2px;
+      flex-shrink: 0;
+      min-width: 24px;
+    }
+
+    .salon-flow h4 {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 3px;
+    }
+
+    .salon-flow p {
+      font-size: 12px;
+      color: var(--gray-2);
+      line-height: 1.65;
+    }
+
+    .salon-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding-top: 24px;
+      border-top: 1px solid var(--gray-line);
+    }
+
+    .meta-row {
+      display: flex;
+      gap: 12px;
+      font-size: 13px;
+    }
+
+    .meta-label {
+      color: var(--gray-3);
+      flex-shrink: 0;
+      min-width: 52px;
+    }
+
+    .meta-value { color: var(--gray-1); }
+
+    .salon-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--black);
+      text-decoration: none;
+      margin-top: 20px;
+      border-bottom: 1px solid rgba(0,0,0,0.15);
+      padding-bottom: 2px;
+      transition: border-color 0.2s, gap 0.2s;
+    }
+
+    .salon-link:hover { border-color: var(--black); gap: 10px; }
+
+    /* ─── TABS (TOB/TOC) ─── */
+    .audience { padding: 96px 48px; }
+
+    .tab-nav {
+      display: flex;
+      gap: 6px;
+      background: var(--gray-bg);
+      border-radius: 30px;
+      padding: 5px;
+      max-width: 340px;
+      margin: 48px auto 56px;
+      border: 1px solid var(--gray-line);
+    }
+
+    .tab-btn {
+      flex: 1;
+      padding: 9px 18px;
+      font-size: 13px;
+      font-weight: 500;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+      background: transparent;
+      color: var(--gray-2);
+      font-family: inherit;
+    }
+
+    .tab-btn.active {
+      background: var(--white);
+      color: var(--black);
+      box-shadow: 0 1px 5px rgba(0,0,0,0.08);
+    }
+
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+
+    .toc-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    .toc-card {
+      background: var(--white);
+      padding: 32px 26px;
+      border: 1px solid var(--gray-line);
+      border-radius: 16px;
+      transition: background 0.2s, box-shadow 0.2s;
+    }
+
+    .toc-card:hover { background: #e8e8ed; }
+
+    .toc-num {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--gray-4);
+      margin-bottom: 20px;
+    }
+
+    .toc-card h3 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .toc-card p {
+      font-size: 13px;
+      color: var(--gray-2);
+      line-height: 1.75;
+    }
+
+    .toc-cta { text-align: center; margin-top: 40px; }
+
+    .tob-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: start;
+    }
+
+    .tob-benefits {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      margin-top: 32px;
+      border: 1px solid var(--gray-line);
+      border-radius: 14px;
+      overflow: hidden;
+      background: var(--gray-line);
+    }
+
+    .tob-benefit {
+      display: flex;
+      gap: 20px;
+      padding: 24px 26px;
+      background: var(--gray-bg);
+      transition: background 0.2s;
+    }
+
+    .tob-benefit:hover { background: #e8e8ed; }
+
+    .tob-benefit-num {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--gray-4);
+      letter-spacing: 0.04em;
+      flex-shrink: 0;
+      padding-top: 2px;
+    }
+
+    .tob-benefit h4 {
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+
+    .tob-benefit p {
+      font-size: 13px;
+      color: var(--gray-2);
+      line-height: 1.7;
+    }
+
+    .tob-cta-box {
+      background: var(--gray-bg);
+      border-radius: 18px;
+      padding: 40px 36px;
+      border: 1px solid var(--gray-line);
+      position: sticky;
+      top: 72px;
+    }
+
+    .tob-cta-box h3 {
+      font-size: 22px;
+      font-weight: 600;
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
+    }
+
+    .tob-cta-box p {
+      font-size: 14px;
+      color: var(--gray-2);
+      line-height: 1.75;
+      margin-bottom: 28px;
+    }
+
+    .btn-hero-filled {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 22px;
+      border: 1.5px solid #fff;
+      border-radius: 30px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--black);
+      background: #fff;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+    }
+    .btn-hero-filled:hover { background: rgba(255,255,255,0.85); }
+
+    .btn-hero {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 22px;
+      border: 1.5px solid rgba(255,255,255,0.8);
+      border-radius: 30px;
+      font-size: 14px;
+      font-weight: 400;
+      color: #fff;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+    }
+    .btn-hero:hover {
+      background: #fff;
+      color: var(--black);
+    }
+
+    .btn-blue-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 22px;
+      border: 1.5px solid #0071e3;
+      border-radius: 30px;
+      font-size: 14px;
+      font-weight: 400;
+      background: #0071e3;
+      color: #fff;
+      text-decoration: none;
+      transition: background 0.2s, opacity 0.2s;
+    }
+
+    .btn-blue-outline:hover {
+      background: #0077ed;
+      opacity: 0.88;
+    }
+
+    .btn-black {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 13px 26px;
+      background: var(--black);
+      color: var(--white);
+      border-radius: 30px;
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+
+    .btn-black:hover { opacity: 0.75; transform: scale(1.02); }
+
+    /* ─── OPEN NOTICE ─── */
+    .open-notice {
+      background: var(--gray-bg);
+      color: var(--black);
+      text-align: center;
+      padding: 96px 48px;
+      border-top: 1px solid var(--gray-line);
+    }
+
+    .open-notice h2 {
+      font-size: clamp(28px, 4vw, 52px);
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      margin-bottom: 16px;
+    }
+
+    .open-notice p {
+      font-size: 17px;
+      color: var(--gray-2);
+      margin-bottom: 40px;
+    }
+
+    .btn-white {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 13px 28px;
+      background: var(--black);
+      color: var(--white);
+      border-radius: 30px;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+
+    .btn-white:hover { opacity: 0.75; transform: scale(1.02); }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: #f5f5f7;
+      color: #6e6e73;
+      padding: 40px 80px 28px;
+      border-top: 1px solid #d2d2d7;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.6fr 1fr;
+      gap: 48px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid #d2d2d7;
+    }
+
+    .footer-brand h3 {
+      font-size: 13px;
+      font-weight: 600;
+      color: #1d1d1f;
+      margin-bottom: 8px;
+    }
+
+    .footer-brand p {
+      font-size: 12px;
+      color: #6e6e73;
+      line-height: 1.8;
+    }
+
+    .footer-col {
+      text-align: right;
+    }
+
+    .footer-col h4 {
+      font-size: 13px;
+      font-weight: 600;
+      color: #1d1d1f;
+      letter-spacing: 0;
+      text-transform: none;
+      margin-bottom: 12px;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+
+    .footer-col ul a {
+      font-size: 12px;
+      color: #6e6e73;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-col ul a:hover { color: #1d1d1f; }
+
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 20px auto 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 11px;
+      color: #6e6e73;
+    }
+
+    .footer-bottom a {
+      color: #6e6e73;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-bottom a:hover { color: #1d1d1f; }
+
+    /* ─── FADE IN ─── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      section, .audience, .open-notice { padding: 72px 28px; }
+      footer { padding: 48px 28px 32px; }
+      nav { padding: 0 20px; }
+      .nav-links { display: none; }
+
+      .hero {
+        padding: 120px 28px 80px;
+        min-height: auto;
+      }
+
+      .concept-grid { grid-template-columns: repeat(4, minmax(160px, 1fr)); }
+      .areas-grid { grid-template-columns: repeat(3, minmax(200px, 1fr)); }
+      .value-grid { grid-template-columns: 1fr 1fr; }
+      .salon-layout { grid-template-columns: 1fr; gap: 36px; }
+      .toc-grid { grid-template-columns: repeat(4, 1fr); }
+      .tob-layout { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr; gap: 28px; }
+      .footer-bottom { flex-direction: column; gap: 6px; text-align: center; }
+      .strip-track img { width: calc(100% / 3); height: 180px; }
+      .divider { max-width: calc(100% - 56px); }
+    }
+
+    @media (max-width: 540px) {
+      .concept-grid { grid-template-columns: 1fr; }
+      .value-grid { grid-template-columns: 1fr; }
+      .toc-grid { grid-template-columns: repeat(4, 1fr); }
+      .hero-buttons { flex-direction: column; }
+      .strip-track img { width: calc(100% / 2); height: 160px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo">実体験型ストア</a>
+    <ul class="nav-links">
+      <li><a href="#concept">コンセプト</a></li>
+      <li><a href="#brandlist">ブランド</a></li>
+      <li><a href="#store">ストア</a></li>
+      <li><a href="#salon">提携美容室</a></li>
+      <li><a href="#store" class="nav-cta">オンラインストア ↗</a></li>
+      <li><a href="https://takakubomasahiro.com/contact" target="_blank" class="nav-cta">お問い合わせ ↗</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <video class="hero-video" autoplay muted loop playsinline>
+      <source src="hero.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay"></div>
+    <div class="hero-bg-text fade-in">
+      <div class="hero-text-inner">
+        <p class="hero-label">Experiential Store</p>
+        <h1>サロン専売品を、<br>試してから<br>買える場所。</h1>
+        <p class="hero-sub">
+          美容室 Aooo Hair に併設した実体験型ストア。<br />
+          全商品を実際に使って、納得してから購入できます。
+        </p>
+        <div class="hero-buttons">
+          <a href="#store" class="btn-hero-filled">ストアを見る</a>
+          <a href="#brands" class="btn-hero">ブランド出品について</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONCEPT -->
+  <section class="concept" id="concept">
+    <div class="section-inner">
+      <p class="section-label">Concept</p>
+      <h2 class="section-title">実体験型ストアとは。</h2>
+      <p class="section-desc">
+        サロン専売品はオンラインでは伝わりにくい。<br />このストアは「試してから買う」を当たり前にします。
+      </p>
+
+      <div class="concept-grid">
+        <div class="concept-card fade-in">
+          <div class="concept-num">01</div>
+          <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10.05 4.575a1.575 1.575 0 10-3.15 0v3m3.15-3v-1.5a1.575 1.575 0 013.15 0v1.5m0 0v2.25m0-2.25a1.575 1.575 0 013.15 0v2.25m-10.5 2.25v-6.75a1.575 1.575 0 113.15 0v6.75m-3.15 0a1.575 1.575 0 000 3.15h9.45a1.575 1.575 0 000-3.15H6.9z"/></svg></div>
+          <h3>すべて試せる</h3>
+          <p>陳列された全商品を実際に使ってから購入を決められます。美容室での施術中も同様です。</p>
+        </div>
+        <div class="concept-card fade-in">
+          <div class="concept-num">02</div>
+          <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7.5 3.75H16.5L21 9L12 20.25L3 9L7.5 3.75Z"/><path d="M3 9H21M7.5 3.75L12 9L16.5 3.75"/></svg></div>
+          <h3>希少ブランドに出会える</h3>
+          <p>EC中心のブランドや店舗では手に入りにくい希少品を、実際に手に取って体験できます。</p>
+        </div>
+        <div class="concept-card fade-in">
+          <div class="concept-num">03</div>
+          <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 4L8.12 15.88M14.47 14.48L20 20M8.12 8.12L12 12"/></svg></div>
+          <h3>美容室と一体の体験</h3>
+          <p>隣接する Aooo Hair の施術中に商品を試せます。スタイリストが使い方を教えてくれます。</p>
+        </div>
+        <div class="concept-card fade-in">
+          <div class="concept-num">04</div>
+          <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9.568 3H5.25A2.25 2.25 0 003 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.658.43l4.5-2.25a2.25 2.25 0 00.43-2.658L11.26 3.659A2.25 2.25 0 009.568 3z"/><path d="M6 6h.008v.008H6V6z"/></svg></div>
+          <h3>お得に購入できる</h3>
+          <p>正規サロン専売品を手軽な価格で。期間限定のポップアップブランドも随時登場します。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- BRAND LIST -->
+  <section id="brandlist" style="padding: 96px 48px; background: var(--gray-bg);">
+    <div class="section-inner">
+      <p class="section-label">Brands</p>
+      <h2 class="section-title">ブランドリスト</h2>
+      <p class="section-desc">実体験型ストアで取り扱うブランドの一覧です。</p>
+
+      <div class="brand-slider-wrap">
+        <button class="brand-slider-btn prev" onclick="slideBrands(-1)" aria-label="前へ">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <button class="brand-slider-btn next" onclick="slideBrands(1)" aria-label="次へ">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+
+        <div class="brand-slider" id="brandSlider">
+          <div class="brand-card fade-in">
+            <div class="brand-img" style="background-image: url('owbyetori.png');">
+              <div class="brand-name-overlay">
+                <h3>OW BYE TORI</h3>
+                <p>ヘアケア・スタイリング</p>
+              </div>
+            </div>
+          </div>
+          <div class="brand-card fade-in">
+            <div class="brand-img" style="background-image: url('sinn.png');">
+              <div class="brand-name-overlay">
+                <h3>SINN PURETÉ</h3>
+                <p>マインドフルビューティー</p>
+              </div>
+            </div>
+          </div>
+          <div class="brand-card fade-in">
+            <div class="brand-img" style="background-image: url('ironowa.png');">
+              <div class="brand-name-overlay">
+                <h3>IRONOWA</h3>
+                <p>カシミアヘアケア</p>
+              </div>
+            </div>
+          </div>
+          <div class="brand-card fade-in">
+            <div class="brand-img" style="background-image: url('1dk.png');">
+              <div class="brand-name-overlay">
+                <h3>1DK</h3>
+                <p>リペアヘアケア</p>
+              </div>
+            </div>
+          </div>
+          <div class="brand-card fade-in">
+            <div class="brand-img" style="background-image: url('theo.png');">
+              <div class="brand-name-overlay">
+                <h3>THÉO standard</h3>
+                <p>サロン専売ヘアケア</p>
+              </div>
+            </div>
+          </div>
+          <div class="brand-card fade-in">
+            <div class="brand-img" style="background-image: url('wella.png');">
+              <div class="brand-name-overlay">
+                <h3>Wella Professionals</h3>
+                <p>ヘアケア・トリートメント</p>
+              </div>
+            </div>
+          </div>
+          <div class="brand-card fade-in">
+            <div class="brand-img" style="background-image: url('o-bron.png');">
+              <div class="brand-name-overlay">
+                <h3>O BRON &amp; HAIR</h3>
+                <p>ビューティーケア</p>
+              </div>
+            </div>
+          </div>
+          <div class="brand-card fade-in">
+            <div class="brand-img" style="background-image: url('refa2.png');">
+              <div class="brand-name-overlay">
+                <h3>ReFa</h3>
+                <p>ヘアケア美容機器</p>
+              </div>
+            </div>
+          </div>
+          <div class="brand-card fade-in">
+            <div class="brand-img" style="background-image: url('arimino.png');">
+              <div class="brand-name-overlay">
+                <h3>ARIMINO SPRINAGE</h3>
+                <p>サロン専売ヘアケア</p>
+              </div>
+            </div>
+          </div>
+          <div class="brand-card fade-in">
+            <div class="brand-img" style="background-image: url('eans.png');">
+              <div class="brand-name-overlay">
+                <h3>EANS the Salon</h3>
+                <p>サロン専売シャンプー</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- STORE AREAS -->
+  <section id="store" style="padding: 96px 48px; background: var(--gray-bg);">
+    <div class="section-inner">
+      <p class="section-label">Store</p>
+      <h2 class="section-title">3つのエリア構成</h2>
+      <p class="section-desc">それぞれ異なる役割を持つエリアが、一つの体験をつくります。</p>
+
+      <div class="areas-grid">
+        <div class="area-card fade-in">
+          <div class="area-tag">Core Line</div>
+          <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23-.693L5 14.5m14.8.8l1.402 1.402c1 1 .28 2.716-1.129 2.716H3.927c-1.409 0-2.13-1.716-1.128-2.716L5 14.5"/></svg></div>
+          <h3>サロン専売品</h3>
+          <p class="area-desc">フックとなるコアライン</p>
+          <ul class="area-items">
+            <li>シャンプー・トリートメント</li>
+            <li>ヘアケア全般</li>
+            <li>ドライヤー等の美容機器</li>
+            <li>プロ愛用の正規品のみ</li>
+          </ul>
+        </div>
+
+        <div class="area-card fade-in">
+          <div class="area-tag">Discovery</div>
+          <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456z"/></svg></div>
+          <h3>魅力的な商品</h3>
+          <p class="area-desc">体験で発見できる商品</p>
+          <ul class="area-items">
+            <li>ヘアケアと親和性の高い商品</li>
+            <li>EC中心のブランド品</li>
+            <li>店舗希少品・限定品</li>
+            <li>試して初めてわかる価値</li>
+          </ul>
+        </div>
+
+        <div class="area-card fade-in">
+          <div class="area-tag">Popup</div>
+          <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10.34 15.84c-.688-.06-1.386-.09-2.09-.09H7.5a4.5 4.5 0 110-9h.75c.704 0 1.402-.03 2.09-.09m0 9.18c.253.962.584 1.892.985 2.783.247.55.06 1.21-.463 1.511l-.657.38c-.551.318-1.26.117-1.527-.461a20.845 20.845 0 01-1.44-4.282m3.102.069a18.03 18.03 0 01-.59-4.59c0-1.586.205-3.124.59-4.59m0 9.18a23.848 23.848 0 018.835 2.535M10.34 6.66a23.847 23.847 0 008.835-2.535m0 0A23.74 23.74 0 0018.795 3m.38 1.125a23.91 23.91 0 011.014 5.395m-1.014 8.855c-.118.38-.245.754-.38 1.125m.38-1.125a23.91 23.91 0 001.014-5.395m0-3.46c.495.413.811 1.035.811 1.73 0 .695-.316 1.317-.811 1.73m0-3.46a24.347 24.347 0 010 3.46"/></svg></div>
+          <h3>POPUPコーナー</h3>
+          <p class="area-desc">話題性・集客装置</p>
+          <ul class="area-items">
+            <li>期間限定ブランドの展示</li>
+            <li>体験型イベントの開催</li>
+            <li>新ブランドの市場テスト</li>
+            <li>定期的に入れ替え</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- SALON -->
+  <section class="salon" id="salon" style="padding: 80px 48px 0; background: var(--gray-bg);">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0 0 48px;">
+
+      <!-- ヘッダー行 -->
+      <div style="display: flex; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; gap: 16px; margin-bottom: 28px;">
+        <div>
+          <p style="font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gray-3); margin-bottom: 10px;">提携美容室</p>
+          <h2 style="font-size: clamp(32px, 4vw, 48px); font-weight: 700; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 10px;">Aooo Hair</h2>
+
+          <!-- 評価バッジ -->
+          <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 10px;">
+            <span style="font-size: 14px; font-weight: 900; color: var(--gray-1);">口コミ評価</span>
+            <span style="font-size: 28px; font-weight: 900; color: var(--gray-1); letter-spacing: -0.02em;">4.96</span>
+            <span style="display: inline-flex; gap: 2px; align-items: center; font-size: 20px;">
+              <span style="color: var(--gray-1);">★</span>
+              <span style="color: var(--gray-1);">★</span>
+              <span style="color: var(--gray-1);">★</span>
+              <span style="color: var(--gray-1);">★</span>
+              <span style="background: linear-gradient(to right, var(--gray-1) 50%, var(--gray-4) 50%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">★</span>
+            </span>
+            <span style="font-size: 14px; font-weight: 700; color: var(--gray-3);">（204件）</span>
+          </div>
+
+          <!-- 営業時間 -->
+          <p style="font-size: 13px; color: var(--gray-2);">
+            不定休 &nbsp;|&nbsp; 平日 10:00〜19:00 ／ 土日祝 10:00〜18:00
+          </p>
+        </div>
+
+        <!-- NEWバッジ -->
+        <div style="display: flex; align-items: center; gap: 0; border: 1.5px solid var(--black); border-radius: 30px; overflow: hidden; height: 36px; flex-shrink: 0; margin-top: 4px;">
+          <span style="background: var(--black); color: var(--white); font-size: 12px; font-weight: 700; padding: 0 14px; height: 100%; display: flex; align-items: center; letter-spacing: 0.06em;">NEW</span>
+          <span style="font-size: 12px; font-weight: 600; padding: 0 14px; color: var(--black); letter-spacing: 0.03em;">実体験型ストア</span>
+        </div>
+      </div>
+
+      <!-- 予約リンク -->
+      <a href="https://beauty.hotpepper.jp/slnH000678849/" target="_blank" style="display:inline-flex; align-items:center; gap:6px; font-size:13px; font-weight:500; color:#0071e3; text-decoration:none; margin-bottom: 32px; transition: opacity 0.2s;">
+        ホットペッパービューティーで予約する ↗
+      </a>
+    </div>
+
+    <!-- サロン写真スライドショー -->
+    <div style="padding: 0 0 80px; max-width: 1200px; margin: 0 auto; box-sizing: border-box; width: 100%;">
+      <div class="salon-slideshow">
+        <div class="salon-slide active" style="background-image: url('salon1.jpg')"></div>
+        <div class="salon-slide" style="background-image: url('salon2.jpg')"></div>
+        <div class="salon-dots">
+          <button class="salon-dot active" onclick="goSalonSlide(0)"></button>
+          <button class="salon-dot" onclick="goSalonSlide(1)"></button>
+        </div>
+        <button class="salon-arrow salon-prev" onclick="moveSalonSlide(-1)">&#8592;</button>
+        <button class="salon-arrow salon-next" onclick="moveSalonSlide(1)">&#8594;</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- TOB / TOC -->
+  <section class="audience" id="brands">
+    <div class="section-inner">
+      <p class="section-label" style="text-align:center;">For Everyone</p>
+      <h2 class="section-title" style="text-align:center;">消費者の方も、<br />ブランドの方も。</h2>
+
+      <div class="tab-nav">
+        <button class="tab-btn active" onclick="switchTab('toc', this)">お客様（購入）</button>
+        <button class="tab-btn" onclick="switchTab('tob', this)">ブランド（出品）</button>
+      </div>
+
+      <!-- toC -->
+      <div class="tab-content active" id="tab-toc">
+        <div class="toc-grid">
+          <div class="toc-card fade-in">
+            <div class="toc-num">01</div>
+            <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13.5 21v-7.5a.75.75 0 01.75-.75h3a.75.75 0 01.75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349m-16.5 11.65V9.35m0 0a3.001 3.001 0 003.75-.615A2.993 2.993 0 009.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 002.25 1.016c.896 0 1.7-.393 2.25-1.016a3.001 3.001 0 003.75.614m-16.5 0a3.004 3.004 0 01-.621-4.72L4.318 3.44A1.5 1.5 0 015.378 3h13.243a1.5 1.5 0 011.06.44l1.19 1.189a3 3 0 01-.621 4.72m-13.5 8.65h3.75a.75.75 0 00.75-.75V13.5a.75.75 0 00-.75-.75H6.75a.75.75 0 00-.75.75v3.75c0 .415.336.75.75.75z"/></svg></div>
+          <h3>来店して試す</h3>
+            <p>気になる商品を全て実際に使ってから、納得して購入できます。</p>
+          </div>
+          <div class="toc-card fade-in">
+            <div class="toc-num">02</div>
+            <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007z"/></svg></div>
+          <h3>オンラインストア</h3>
+            <p>来店できない方でも、サロン専売品を正規品・安心価格でオンライン購入できます。</p>
+          </div>
+          <div class="toc-card fade-in">
+            <div class="toc-num">03</div>
+            <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 01-.825-.242m9.345-8.334a2.126 2.126 0 00-.476-.095 48.64 48.64 0 00-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0011.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155"/></svg></div>
+          <h3>スタイリストに相談</h3>
+            <p>髪質・悩みに合わせた商品をプロが提案。美容室 Aooohair でご相談いただけます。</p>
+          </div>
+          <div class="toc-card fade-in">
+            <div class="toc-num">04</div>
+            <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"/></svg></div>
+          <h3>定期ポップアップ</h3>
+            <p>期間限定ブランドや体験型イベントを定期開催。希少ブランドとの出会いをお届けします。</p>
+          </div>
+        </div>
+        <div class="toc-cta">
+          <a href="#contact" class="btn-blue-outline">オンラインストア</a>
+        </div>
+      </div>
+
+      <!-- toB -->
+      <div class="tab-content" id="tab-tob">
+        <div class="toc-grid">
+          <div class="toc-card fade-in">
+            <div class="toc-num">01</div>
+            <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z"/></svg></div>
+          <h3>リアルな顧客接点</h3>
+            <p>ECでは伝わりにくい質感・使用感を、実際に試してもらえます。</p>
+          </div>
+          <div class="toc-card fade-in">
+            <div class="toc-num">02</div>
+            <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/></svg></div>
+          <h3>美容室経由の信頼感</h3>
+            <p>スタイリストが施術中に使用・紹介することで、強い購買意欲につながります。</p>
+          </div>
+          <div class="toc-card fade-in">
+            <div class="toc-num">03</div>
+            <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z"/></svg></div>
+          <h3>POPUPで市場テスト</h3>
+            <p>期間限定出品でブランドの反応を確かめてから、継続展示を検討できます。</p>
+          </div>
+          <div class="toc-card fade-in">
+            <div class="toc-num">04</div>
+            <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244"/></svg></div>
+          <h3>オンラインストア</h3>
+            <p>店頭での体験をオンラインリピート購入につなげる仕組みをご提供します。</p>
+          </div>
+        </div>
+
+        <div id="contact" style="margin-top: 40px; text-align: center;">
+          <h3 style="font-size:22px; font-weight:600; letter-spacing:-0.02em; margin-bottom:12px;">出品・展示のご相談</h3>
+          <p style="font-size:14px; color:var(--gray-2); line-height:1.75; margin-bottom:20px;">
+            ブランドの商品カテゴリ・ご希望の展示スタイルをお知らせください。<br>
+            サロン専売品・ECブランド・スタートアップブランドなど、幅広くご相談を受け付けています。
+          </p>
+          <a href="https://takakubomasahiro.com/contact" target="_blank" class="btn-blue-outline">相談する</a>
+          <p style="font-size:12px; color:var(--gray-3); margin-top:12px;">
+            ※ メールにてご連絡いただいた後、詳細をご案内します
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <h3>実体験型ストア</h3>
+        <p>
+          サロン専売品を中心とした体験型ショップ。
+        </p>
+        <p style="margin-top: 12px;">
+          住所<br />
+          福岡県福岡市博多区竹4-14-10<br />
+          JR竹下駅　徒歩3分
+        </p>
+      </div>
+      <div class="footer-col">
+        <h4>ご利用案内</h4>
+        <ul>
+          <li><a href="#brands" onclick="setTimeout(function(){switchTab('tob', document.querySelectorAll('.tab-btn')[1])},100)">ブランド出品について</a></li>
+          <li><a href="https://beauty.hotpepper.jp/slnH000678849/" target="_blank">Aooohair 予約ページ</a></li>
+          <li><a href="https://takakubomasahiro.com/contact" target="_blank">お問い合わせ</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 実体験型ストア / Aooohair</span>
+      <a href="https://beauty.hotpepper.jp/slnH000678849/" target="_blank">Aooohair — ホットペッパービューティー</a>
+    </div>
+  </footer>
+
+  <script>
+    function switchTab(id, btn) {
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+      document.getElementById('tab-' + id).classList.add('active');
+      btn.classList.add('active');
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.08 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Hero slideshow
+    (function() {
+      const slides = document.querySelectorAll('.hero-slide');
+      let current = 0;
+      setInterval(function() {
+        slides[current].classList.remove('active');
+        current = (current + 1) % slides.length;
+        slides[current].classList.add('active');
+      }, 4000);
+    })();
+
+    // Salon slideshow
+    var salonCurrent = 0;
+    var salonSlides = document.querySelectorAll('.salon-slide');
+    var salonDots = document.querySelectorAll('.salon-dot');
+    var salonTimer;
+
+    function goSalonSlide(index) {
+      salonSlides[salonCurrent].classList.remove('active');
+      salonDots[salonCurrent].classList.remove('active');
+      salonCurrent = (index + salonSlides.length) % salonSlides.length;
+      salonSlides[salonCurrent].classList.add('active');
+      salonDots[salonCurrent].classList.add('active');
+      clearInterval(salonTimer);
+      salonTimer = setInterval(function() { goSalonSlide(salonCurrent + 1); }, 5000);
+    }
+
+    function moveSalonSlide(dir) { goSalonSlide(salonCurrent + dir); }
+
+    salonTimer = setInterval(function() { goSalonSlide(salonCurrent + 1); }, 5000);
+
+    // Brand slider arrows
+    function slideBrands(dir) {
+      var slider = document.getElementById('brandSlider');
+      var cardWidth = slider.querySelector('.brand-card').offsetWidth + 16;
+      slider.scrollBy({ left: dir * cardWidth, behavior: 'smooth' });
+    }
+  </script>
+
+</body>
+</html>
