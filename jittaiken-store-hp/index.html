@@ -111,7 +111,7 @@
     .hero-bg-text {
       position: relative;
       z-index: 2;
-      padding: 60px 80px;
+      padding: 60px 80px 100px;
       width: 100%;
     }
 
@@ -130,7 +130,7 @@
     }
 
     .hero-bg-text h1 {
-      font-size: clamp(28px, 3.5vw, 44px);
+      font-size: clamp(40px, 6vw, 80px);
       font-weight: 600;
       line-height: 1.15;
       letter-spacing: -0.025em;
@@ -140,7 +140,7 @@
 
     .hero-bg-text .hero-sub {
       font-size: 17px;
-      font-weight: 300;
+      font-weight: 500;
       color: rgba(255,255,255,0.8);
       max-width: 540px;
       line-height: 1.75;
@@ -274,7 +274,7 @@
       font-weight: 600;
       letter-spacing: -0.025em;
       line-height: 1.15;
-      margin-bottom: 18px;
+      margin-bottom: 12px;
     }
 
     .section-desc {
@@ -318,9 +318,9 @@
 
     .concept-grid {
       display: grid;
-      grid-template-columns: repeat(4, minmax(160px, 1fr));
+      grid-template-columns: repeat(3, 1fr);
       gap: 16px;
-      margin-top: 56px;
+      margin-top: 32px;
     }
 
     .card-icon {
@@ -335,7 +335,7 @@
       background: var(--white);
       border: 1px solid var(--gray-line);
       border-radius: 16px;
-      padding: 36px 28px;
+      overflow: hidden;
       transition: box-shadow 0.3s, transform 0.3s;
     }
 
@@ -344,12 +344,23 @@
       transform: translateY(-4px);
     }
 
+    .concept-card-img {
+      width: 100%;
+      height: 220px;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .concept-card-body {
+      padding: 24px 28px 28px;
+    }
+
     .concept-num {
-      font-size: 28px;
+      font-size: 11px;
       font-weight: 700;
       color: var(--gray-4);
-      margin-bottom: 20px;
-      line-height: 1;
+      margin-bottom: 10px;
+      letter-spacing: 0.08em;
     }
 
     .concept-card h3 {
@@ -367,20 +378,25 @@
     /* ─── BRAND LIST ─── */
     .brand-slider-wrap {
       position: relative;
-      margin-top: 48px;
+      margin-top: 32px;
+      -webkit-tap-highlight-color: transparent;
     }
 
     .brand-slider {
       display: flex;
       overflow-x: auto;
+      overflow-y: hidden;
       scroll-snap-type: x mandatory;
       -webkit-overflow-scrolling: touch;
+      touch-action: pan-x;
       gap: 16px;
       padding-bottom: 8px;
       scrollbar-width: none;
+      -webkit-tap-highlight-color: transparent;
     }
 
     .brand-slider::-webkit-scrollbar { display: none; }
+    .brand-slider * { -webkit-tap-highlight-color: transparent; }
 
     .brand-card {
       flex: 0 0 340px;
@@ -388,13 +404,9 @@
       border-radius: 20px;
       overflow: hidden;
       position: relative;
-      cursor: pointer;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-
-    .brand-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+      -webkit-tap-highlight-color: transparent;
+      outline: none;
+      user-select: none;
     }
 
     .brand-img {
@@ -456,7 +468,7 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 16px;
-      margin-top: 56px;
+      margin-top: 32px;
     }
 
     .area-card {
@@ -772,15 +784,15 @@
       background: var(--gray-bg);
       border-radius: 30px;
       padding: 5px;
-      max-width: 340px;
+      max-width: 420px;
       margin: 48px auto 56px;
       border: 1px solid var(--gray-line);
     }
 
     .tab-btn {
       flex: 1;
-      padding: 9px 18px;
-      font-size: 13px;
+      padding: 12px 24px;
+      font-size: 15px;
       font-weight: 500;
       border: none;
       border-radius: 30px;
@@ -1218,223 +1230,11 @@
     </div>
   </section>
 
-  <!-- CONCEPT -->
-  <section class="concept" id="concept">
-    <div class="section-inner">
-      <p class="section-label">About</p>
-      <h2 class="section-title">実体験型ストアとは</h2>
-
-      <div class="concept-grid">
-        <div class="concept-card fade-in">
-          <div class="concept-num">01</div>
-          <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10.05 4.575a1.575 1.575 0 10-3.15 0v3m3.15-3v-1.5a1.575 1.575 0 013.15 0v1.5m0 0v2.25m0-2.25a1.575 1.575 0 013.15 0v2.25m-10.5 2.25v-6.75a1.575 1.575 0 113.15 0v6.75m-3.15 0a1.575 1.575 0 000 3.15h9.45a1.575 1.575 0 000-3.15H6.9z"/></svg></div>
-          <h3>すべて試せる</h3>
-          <p>陳列された全商品を実際に使ってから購入を決められます。美容室での施術中も同様です。</p>
-        </div>
-        <div class="concept-card fade-in">
-          <div class="concept-num">02</div>
-          <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 4L8.12 15.88M14.47 14.48L20 20M8.12 8.12L12 12"/></svg></div>
-          <h3>美容室と一体の体験</h3>
-          <p>隣接する Aooo Hair の施術中に商品を試せます。スタイリストが使い方を教えてくれます。</p>
-        </div>
-        <div class="concept-card fade-in">
-          <div class="concept-num">03</div>
-          <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9.568 3H5.25A2.25 2.25 0 003 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.658.43l4.5-2.25a2.25 2.25 0 00.43-2.658L11.26 3.659A2.25 2.25 0 009.568 3z"/><path d="M6 6h.008v.008H6V6z"/></svg></div>
-          <h3>お得に購入できる</h3>
-          <p>正規サロン専売品を手軽な価格で。期間限定のポップアップブランドも随時登場します。</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <!-- BRAND LIST -->
-  <section style="padding: 96px 48px; background: var(--gray-bg);">
-    <div class="section-inner">
-      <p class="section-label">Brand</p>
-      <h2 class="section-title">ブランドリスト</h2>
-
-      <div class="brand-slider-wrap">
-        <button class="brand-slider-btn prev" onclick="slideBrands(-1)" aria-label="前へ">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-        </button>
-        <button class="brand-slider-btn next" onclick="slideBrands(1)" aria-label="次へ">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-        </button>
-        <div class="brand-slider" id="brandSlider">
-          <div class="brand-card fade-in">
-            <div class="brand-img" style="background-image: url('refa2.png');">
-              <div class="brand-name-overlay"><h3>ReFa</h3><p>ヘアケア美容機器</p></div>
-            </div>
-          </div>
-          <div class="brand-card fade-in">
-            <div class="brand-img" style="background-image: url('theo.png');">
-              <div class="brand-name-overlay"><h3>THÉO standard</h3><p>サロン専売ヘアケア</p></div>
-            </div>
-          </div>
-          <div class="brand-card fade-in">
-            <div class="brand-img" style="background-image: url('sinn.png');">
-              <div class="brand-name-overlay"><h3>SINN PURETÉ</h3><p>マインドフルビューティー</p></div>
-            </div>
-          </div>
-          <div class="brand-card fade-in">
-            <div class="brand-img" style="background-image: url('wella.png');">
-              <div class="brand-name-overlay"><h3>Wella Professionals</h3><p>ヘアケア・トリートメント</p></div>
-            </div>
-          </div>
-          <div class="brand-card fade-in">
-            <div class="brand-img" style="background-image: url('eans.png');">
-              <div class="brand-name-overlay"><h3>EANS the Salon</h3><p>サロン専売シャンプー</p></div>
-            </div>
-          </div>
-          <div class="brand-card fade-in">
-            <div class="brand-img" style="background-image: url('owbyetori.png');">
-              <div class="brand-name-overlay"><h3>OW BYE TORI</h3><p>ヘアケア・スタイリング</p></div>
-            </div>
-          </div>
-          <div class="brand-card fade-in">
-            <div class="brand-img" style="background-image: url('ironowa.png');">
-              <div class="brand-name-overlay"><h3>IRONOWA</h3><p>カシミアヘアケア</p></div>
-            </div>
-          </div>
-          <div class="brand-card fade-in">
-            <div class="brand-img" style="background-image: url('1dk.png');">
-              <div class="brand-name-overlay"><h3>1DK</h3><p>リペアヘアケア</p></div>
-            </div>
-          </div>
-          <div class="brand-card fade-in">
-            <div class="brand-img" style="background-image: url('o-bron.png');">
-              <div class="brand-name-overlay"><h3>O BRON &amp; HAIR</h3><p>ビューティーケア</p></div>
-            </div>
-          </div>
-          <div class="brand-card fade-in">
-            <div class="brand-img" style="background-image: url('arimino.png');">
-              <div class="brand-name-overlay"><h3>ARIMINO SPRINAGE</h3><p>サロン専売ヘアケア</p></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <!-- STORE AREAS -->
-  <section id="store" style="padding: 96px 48px; background: var(--gray-bg);">
-    <div class="section-inner">
-      <p class="section-label">Store</p>
-      <h2 class="section-title">3つのエリア構成</h2>
-      <p class="section-desc">それぞれ異なる役割を持つエリアが、一つの体験をつくります。</p>
-
-      <div class="areas-grid">
-        <div class="area-card fade-in">
-          <div class="area-tag">Core Line</div>
-          <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23-.693L5 14.5m14.8.8l1.402 1.402c1 1 .28 2.716-1.129 2.716H3.927c-1.409 0-2.13-1.716-1.128-2.716L5 14.5"/></svg></div>
-          <h3>サロン専売品</h3>
-          <p class="area-desc">フックとなるコアライン</p>
-          <ul class="area-items">
-            <li>シャンプー・トリートメント</li>
-            <li>ヘアケア全般</li>
-            <li>ドライヤー等の美容機器</li>
-            <li>プロ愛用の正規品のみ</li>
-          </ul>
-        </div>
-
-        <div class="area-card fade-in">
-          <div class="area-tag">Discovery</div>
-          <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456z"/></svg></div>
-          <h3>魅力的な商品</h3>
-          <p class="area-desc">体験で発見できる商品</p>
-          <ul class="area-items">
-            <li>ヘアケアと親和性の高い商品</li>
-            <li>EC中心のブランド品</li>
-            <li>店舗希少品・限定品</li>
-            <li>試して初めてわかる価値</li>
-          </ul>
-        </div>
-
-        <div class="area-card fade-in">
-          <div class="area-tag">Popup</div>
-          <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10.34 15.84c-.688-.06-1.386-.09-2.09-.09H7.5a4.5 4.5 0 110-9h.75c.704 0 1.402-.03 2.09-.09m0 9.18c.253.962.584 1.892.985 2.783.247.55.06 1.21-.463 1.511l-.657.38c-.551.318-1.26.117-1.527-.461a20.845 20.845 0 01-1.44-4.282m3.102.069a18.03 18.03 0 01-.59-4.59c0-1.586.205-3.124.59-4.59m0 9.18a23.848 23.848 0 018.835 2.535M10.34 6.66a23.847 23.847 0 008.835-2.535m0 0A23.74 23.74 0 0018.795 3m.38 1.125a23.91 23.91 0 011.014 5.395m-1.014 8.855c-.118.38-.245.754-.38 1.125m.38-1.125a23.91 23.91 0 001.014-5.395m0-3.46c.495.413.811 1.035.811 1.73 0 .695-.316 1.317-.811 1.73m0-3.46a24.347 24.347 0 010 3.46"/></svg></div>
-          <h3>POPUPコーナー</h3>
-          <p class="area-desc">話題性・集客装置</p>
-          <ul class="area-items">
-            <li>期間限定ブランドの展示</li>
-            <li>体験型イベントの開催</li>
-            <li>新ブランドの市場テスト</li>
-            <li>定期的に入れ替え</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <!-- SALON -->
-  <section class="salon" id="salon" style="padding: 80px 48px 0; background: var(--gray-bg);">
-    <div style="max-width: 1200px; margin: 0 auto; padding: 0 0 48px;">
-
-      <!-- ヘッダー行 -->
-      <div style="display: flex; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; gap: 16px; margin-bottom: 28px;">
-        <div>
-          <p style="font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gray-3); margin-bottom: 10px;">提携美容室</p>
-          <h2 style="font-size: clamp(32px, 4vw, 48px); font-weight: 700; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 10px;">Aooo Hair</h2>
-
-          <!-- 評価バッジ -->
-          <div style="display: flex; align-items: center; gap: 8px; flex-wrap: nowrap; margin-bottom: 10px; white-space: nowrap;">
-            <span style="font-size: 13px; font-weight: 900; color: var(--gray-1);">口コミ評価</span>
-            <span style="font-size: 22px; font-weight: 900; color: var(--gray-1); letter-spacing: -0.02em;">4.96</span>
-            <span style="display: inline-flex; gap: 1px; align-items: center; font-size: 17px;">
-              <span style="color: var(--gray-1);">★</span>
-              <span style="color: var(--gray-1);">★</span>
-              <span style="color: var(--gray-1);">★</span>
-              <span style="color: var(--gray-1);">★</span>
-              <span style="background: linear-gradient(to right, var(--gray-1) 50%, var(--gray-4) 50%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">★</span>
-            </span>
-            <span style="font-size: 13px; font-weight: 700; color: var(--gray-3);">（204件）</span>
-          </div>
-
-          <!-- 営業時間 -->
-          <p style="font-size: 13px; color: var(--gray-2);">
-            不定休 &nbsp;|&nbsp; 平日 10:00〜19:00 ／ 土日祝 10:00〜18:00
-          </p>
-        </div>
-
-        <!-- NEWバッジ -->
-        <div style="display: flex; align-items: center; gap: 0; border: 1.5px solid var(--black); border-radius: 30px; overflow: hidden; height: 36px; flex-shrink: 0; margin-top: 4px;">
-          <span style="background: var(--black); color: var(--white); font-size: 12px; font-weight: 700; padding: 0 14px; height: 100%; display: flex; align-items: center; letter-spacing: 0.06em;">NEW</span>
-          <span style="font-size: 12px; font-weight: 600; padding: 0 14px; color: var(--black); letter-spacing: 0.03em;">実体験型ストア</span>
-        </div>
-      </div>
-
-      <!-- 予約リンク -->
-      <a href="https://beauty.hotpepper.jp/slnH000678849/" target="_blank" style="display:inline-flex; align-items:center; gap:6px; font-size:13px; font-weight:500; color:#0071e3; text-decoration:none; margin-bottom: 32px; transition: opacity 0.2s;">
-        ホットペッパービューティーで予約する ↗
-      </a>
-    </div>
-
-    <!-- サロン写真スライドショー -->
-    <div style="padding: 0 0 80px; max-width: 1200px; margin: 0 auto; box-sizing: border-box; width: 100%;">
-      <div class="salon-slideshow">
-        <div class="salon-slide active" style="background-image: url('salon1.jpg')"></div>
-        <div class="salon-slide" style="background-image: url('salon2.jpg')"></div>
-        <div class="salon-dots">
-          <button class="salon-dot active" onclick="goSalonSlide(0)"></button>
-          <button class="salon-dot" onclick="goSalonSlide(1)"></button>
-        </div>
-        <button class="salon-arrow salon-prev" onclick="moveSalonSlide(-1)">&#8592;</button>
-        <button class="salon-arrow salon-next" onclick="moveSalonSlide(1)">&#8594;</button>
-      </div>
-    </div>
-  </section>
-
   <!-- TOB / TOC -->
   <section class="audience" id="brands">
     <div class="section-inner">
       <p class="section-label" style="text-align:center;">Service</p>
-      <h2 class="section-title" style="text-align:center;">消費者の方も、<br />ブランドの方も。</h2>
+      <h2 class="section-title" style="text-align:center;">サービス内容</h2>
 
       <div class="tab-nav">
         <button class="tab-btn active" onclick="switchTab('tob', this)">ブランド（出品）</button>
@@ -1518,6 +1318,222 @@
     </div>
   </section>
 
+  <div class="divider"></div>
+
+  <!-- CONCEPT -->
+  <section class="concept" id="concept">
+    <div class="section-inner">
+      <p class="section-label">About</p>
+      <h2 class="section-title">実体験型ストアとは</h2>
+
+      <div class="concept-grid">
+        <div class="concept-card fade-in">
+          <div class="concept-card-img" style="background-image: url('slide1.png');"></div>
+          <div class="concept-card-body">
+            <div class="concept-num">01</div>
+            <h3>すべて試せる</h3>
+            <p>陳列された全商品を実際に使ってから購入を決められます。美容室での施術中も同様です。</p>
+          </div>
+        </div>
+        <div class="concept-card fade-in">
+          <div class="concept-card-img" style="background-image: url('slide2.png');"></div>
+          <div class="concept-card-body">
+            <div class="concept-num">02</div>
+            <h3>美容室と一体の体験</h3>
+            <p>隣接する Aooo Hair の施術中に商品を試せます。スタイリストが使い方を教えてくれます。</p>
+          </div>
+        </div>
+        <div class="concept-card fade-in">
+          <div class="concept-card-img" style="background-image: url('slide3.png');"></div>
+          <div class="concept-card-body">
+            <div class="concept-num">03</div>
+            <h3>お得に購入できる</h3>
+            <p>正規サロン専売品を手軽な価格で。期間限定のポップアップブランドも随時登場します。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- BRAND LIST -->
+  <section style="padding: 96px 48px; background: var(--gray-bg);">
+    <div class="section-inner">
+      <p class="section-label">Brand</p>
+      <h2 class="section-title">ブランドリスト</h2>
+
+      <div class="brand-slider-wrap">
+        <button class="brand-slider-btn prev" onclick="slideBrands(-1)" aria-label="前へ">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <button class="brand-slider-btn next" onclick="slideBrands(1)" aria-label="次へ">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+        <div class="brand-slider" id="brandSlider">
+          <div class="brand-card fade-in">
+            <div class="brand-img" style="background-image: url('refa2.png');">
+              <div class="brand-name-overlay"><h3>ReFa</h3><p>ヘアケア美容機器</p></div>
+            </div>
+          </div>
+          <div class="brand-card fade-in">
+            <div class="brand-img" style="background-image: url('theo.png');">
+              <div class="brand-name-overlay"><h3>THÉO standard</h3><p>サロン専売ヘアケア</p></div>
+            </div>
+          </div>
+          <div class="brand-card fade-in">
+            <div class="brand-img" style="background-image: url('sinn.png');">
+              <div class="brand-name-overlay"><h3>SINN PURETÉ</h3><p>マインドフルビューティー</p></div>
+            </div>
+          </div>
+          <div class="brand-card fade-in">
+            <div class="brand-img" style="background-image: url('wella.png');">
+              <div class="brand-name-overlay"><h3>Wella Professionals</h3><p>ヘアケア・トリートメント</p></div>
+            </div>
+          </div>
+          <div class="brand-card fade-in">
+            <div class="brand-img" style="background-image: url('eans.png');">
+              <div class="brand-name-overlay"><h3>EANS the Salon</h3><p>サロン専売シャンプー</p></div>
+            </div>
+          </div>
+          <div class="brand-card fade-in">
+            <div class="brand-img" style="background-image: url('owbyetori.png');">
+              <div class="brand-name-overlay"><h3>OW BYE TORI</h3><p>ヘアケア・スタイリング</p></div>
+            </div>
+          </div>
+          <div class="brand-card fade-in">
+            <div class="brand-img" style="background-image: url('ironowa.png');">
+              <div class="brand-name-overlay"><h3>IRONOWA</h3><p>カシミアヘアケア</p></div>
+            </div>
+          </div>
+          <div class="brand-card fade-in">
+            <div class="brand-img" style="background-image: url('1dk.png');">
+              <div class="brand-name-overlay"><h3>1DK</h3><p>リペアヘアケア</p></div>
+            </div>
+          </div>
+          <div class="brand-card fade-in">
+            <div class="brand-img" style="background-image: url('o-bron.png');">
+              <div class="brand-name-overlay"><h3>O BRON &amp; HAIR</h3><p>ビューティーケア</p></div>
+            </div>
+          </div>
+          <div class="brand-card fade-in">
+            <div class="brand-img" style="background-image: url('arimino.png');">
+              <div class="brand-name-overlay"><h3>ARIMINO SPRINAGE</h3><p>サロン専売ヘアケア</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- STORE AREAS -->
+  <section id="store" style="padding: 96px 48px; background: var(--gray-bg);">
+    <div class="section-inner">
+      <p class="section-label">Store</p>
+      <h2 class="section-title">3つのエリア構成</h2>
+
+      <div class="areas-grid">
+        <div class="area-card fade-in">
+          <div class="area-tag">Core Line</div>
+          <h3>サロン専売品</h3>
+          <p class="area-desc">フックとなるコアライン</p>
+          <ul class="area-items">
+            <li>シャンプー・トリートメント</li>
+            <li>ヘアケア全般</li>
+            <li>ドライヤー等の美容機器</li>
+            <li>プロ愛用の正規品のみ</li>
+          </ul>
+        </div>
+
+        <div class="area-card fade-in">
+          <div class="area-tag">Discovery</div>
+          <h3>魅力的な商品</h3>
+          <p class="area-desc">体験で発見できる商品</p>
+          <ul class="area-items">
+            <li>ヘアケアと親和性の高い商品</li>
+            <li>EC中心のブランド品</li>
+            <li>店舗希少品・限定品</li>
+            <li>試して初めてわかる価値</li>
+          </ul>
+        </div>
+
+        <div class="area-card fade-in">
+          <div class="area-tag">Popup</div>
+          <h3>POPUPコーナー</h3>
+          <p class="area-desc">話題性・集客装置</p>
+          <ul class="area-items">
+            <li>期間限定ブランドの展示</li>
+            <li>体験型イベントの開催</li>
+            <li>新ブランドの市場テスト</li>
+            <li>定期的に入れ替え</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- SALON -->
+  <section class="salon" id="salon" style="padding: 80px 48px 0; background: var(--gray-bg);">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0 0 48px;">
+
+      <!-- ヘッダー行 -->
+      <div style="display: flex; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; gap: 16px; margin-bottom: 16px;">
+        <div>
+          <p style="font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gray-3); margin-bottom: 10px;">提携美容室</p>
+          <h2 style="font-size: clamp(32px, 4vw, 48px); font-weight: 700; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 10px;">Aooo Hair</h2>
+
+          <!-- 評価バッジ -->
+          <div style="display: flex; align-items: center; gap: 8px; flex-wrap: nowrap; margin-bottom: 10px; white-space: nowrap;">
+            <span style="font-size: 13px; font-weight: 900; color: var(--gray-1);">口コミ評価</span>
+            <span style="font-size: 22px; font-weight: 900; color: var(--gray-1); letter-spacing: -0.02em;">4.96</span>
+            <span style="display: inline-flex; gap: 1px; align-items: center; font-size: 17px;">
+              <span style="color: var(--gray-1);">★</span>
+              <span style="color: var(--gray-1);">★</span>
+              <span style="color: var(--gray-1);">★</span>
+              <span style="color: var(--gray-1);">★</span>
+              <span style="background: linear-gradient(to right, var(--gray-1) 50%, var(--gray-4) 50%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">★</span>
+            </span>
+            <span style="font-size: 13px; font-weight: 700; color: var(--gray-3);">（204件）</span>
+          </div>
+
+          <!-- 営業時間 -->
+          <p style="font-size: 13px; color: var(--gray-2);">
+            不定休 &nbsp;|&nbsp; 平日 10:00〜19:00 ／ 土日祝 10:00〜18:00
+          </p>
+        </div>
+
+        <!-- NEWバッジ -->
+        <div style="display: flex; align-items: center; gap: 0; border: 1.5px solid var(--black); border-radius: 30px; overflow: hidden; height: 36px; flex-shrink: 0; margin-top: 4px;">
+          <span style="background: var(--black); color: var(--white); font-size: 12px; font-weight: 700; padding: 0 14px; height: 100%; display: flex; align-items: center; letter-spacing: 0.06em;">NEW</span>
+          <span style="font-size: 12px; font-weight: 600; padding: 0 14px; color: var(--black); letter-spacing: 0.03em;">実体験型ストア</span>
+        </div>
+      </div>
+
+      <!-- 予約リンク -->
+      <a href="https://beauty.hotpepper.jp/slnH000678849/" target="_blank" style="display:inline-flex; align-items:center; gap:6px; font-size:13px; font-weight:500; color:#0071e3; text-decoration:none; margin-bottom: 16px; transition: opacity 0.2s;">
+        ホットペッパービューティーで予約する ↗
+      </a>
+    </div>
+
+    <!-- サロン写真スライドショー -->
+    <div style="padding: 0 0 80px; max-width: 1200px; margin: 0 auto; box-sizing: border-box; width: 100%;">
+      <div class="salon-slideshow">
+        <div class="salon-slide active" style="background-image: url('salon1.jpg')"></div>
+        <div class="salon-slide" style="background-image: url('salon2.jpg')"></div>
+        <div class="salon-dots">
+          <button class="salon-dot active" onclick="goSalonSlide(0)"></button>
+          <button class="salon-dot" onclick="goSalonSlide(1)"></button>
+        </div>
+        <button class="salon-arrow salon-prev" onclick="moveSalonSlide(-1)">&#8592;</button>
+        <button class="salon-arrow salon-next" onclick="moveSalonSlide(1)">&#8594;</button>
+      </div>
+    </div>
+  </section>
+
   <!-- FOOTER -->
   <footer>
     <div class="footer-inner">
@@ -1530,7 +1546,7 @@
           〒812-0895<br />
           福岡県福岡市博多区竹下4丁目14−10 1F
         </p>
-        <a href="https://share.google/oU8yfYOOTRJ34PXxY" target="_blank" style="display: inline-block; margin-top: 8px; font-size: 13px; color: #0071e3; text-decoration: none; transition: opacity 0.2s;" onmouseover="this.style.opacity=0.7" onmouseout="this.style.opacity=1">地図を開く ↗</a>
+        <a href="https://maps.app.goo.gl/XL7aZeQ6mNXYYtTN8" target="_blank" style="display: inline-block; margin-top: 8px; font-size: 13px; color: #0071e3; text-decoration: none; transition: opacity 0.2s;" onmouseover="this.style.opacity=0.7" onmouseout="this.style.opacity=1">地図を開く ↗</a>
       </div>
       <div class="footer-col">
         <h4>ご利用案内</h4>
