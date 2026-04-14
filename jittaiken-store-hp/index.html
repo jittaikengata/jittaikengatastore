@@ -7,7 +7,7 @@
   <meta name="description" content="サロン専売品を中心とした実体験型ストア。全商品を試してから購入できる、美容室 Aooohair 併設のショップ。ブランドの出品も受け付けています。" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -35,9 +35,9 @@
     /* ─── NAV ─── */
     nav {
       position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      height: 52px;
+      top: 37px; left: 0; right: 0;
+      z-index: 199;
+      height: 64px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -50,10 +50,13 @@
 
     .nav-logo {
       font-size: 14px;
-      font-weight: 600;
+      font-weight: 700;
       color: var(--black);
       text-decoration: none;
       letter-spacing: 0.04em;
+      line-height: 1;
+      display: flex;
+      align-items: center;
     }
 
     .nav-links {
@@ -261,7 +264,7 @@
     .section-inner { max-width: 1200px; margin: 0 auto; }
 
     .section-label {
-      font-size: 11px;
+      font-size: 13px;
       font-weight: 600;
       letter-spacing: 0.14em;
       text-transform: uppercase;
@@ -270,7 +273,7 @@
     }
 
     .section-title {
-      font-size: clamp(28px, 3.5vw, 44px);
+      font-size: clamp(34px, 4.2vw, 44px);
       font-weight: 600;
       letter-spacing: -0.025em;
       line-height: 1.15;
@@ -931,6 +934,7 @@
       border-radius: 30px;
       font-size: 14px;
       font-weight: 500;
+      line-height: 1;
       color: var(--black);
       background: #fff;
       text-decoration: none;
@@ -947,6 +951,7 @@
       border-radius: 30px;
       font-size: 14px;
       font-weight: 400;
+      line-height: 1;
       color: #fff;
       text-decoration: none;
       transition: background 0.2s, color 0.2s;
@@ -1143,71 +1148,210 @@
 
     @media (max-width: 768px) {
       html, body { overflow-x: hidden; }
-      nav { padding: 0 16px; }
-      section, .audience, .open-notice { padding: 64px 24px; }
-      footer { padding: 40px 24px 28px; }
-      .hero-bg-text { padding: 40px 24px; }
-      .hero-bg-text h1 { font-size: clamp(22px, 6vw, 40px); }
-      .hero-bg-text .hero-sub { font-size: 15px; }
-      .hero-buttons { flex-direction: row; gap: 8px; flex-wrap: wrap; }
-      .btn-hero, .btn-hero-filled { font-size: 12px; padding: 9px 16px; }
-      .section-title { font-size: clamp(22px, 6vw, 36px); }
+
+      /* バナー・ナビ */
+      nav { padding: 6px 16px 0; top: 33px; height: 64px; align-items: center; }
+
+      /* セクション余白 */
+      section, .audience, .open-notice { padding: 56px 20px; }
+      footer { padding: 40px 20px 28px; }
+      .section-inner { padding: 0; }
+
+      /* ヒーロー */
+      .hero-bg-text { padding: 32px 20px 60px; }
+      .hero-bg-text h1 { font-size: clamp(28px, 8vw, 44px); line-height: 1.3; }
+      .hero-bg-text .hero-sub { font-size: 12px; line-height: 1.8; margin-bottom: 24px; }
+      .hero-buttons { flex-direction: column; gap: 10px; align-items: flex-start; }
+      .btn-hero, .btn-hero-filled { font-size: 13px; padding: 10px 20px; }
+
+      /* 見出し */
+      .section-title { font-size: clamp(24px, 7vw, 36px); }
+      .section-label { font-size: 11px; }
+
+      /* タブ */
+      .tab-nav { max-width: 100%; display: flex; margin: 24px auto 28px; }
+      .tab-btn { flex: 1; padding: 10px 12px; font-size: 13px; text-align: center; }
+
+      /* コンセプトグリッド */
+      .concept-grid {
+        display: flex;
+        overflow-x: auto;
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+        touch-action: pan-x;
+        scrollbar-width: none;
+        gap: 12px;
+        padding-bottom: 12px;
+        margin-top: 24px;
+        scroll-snap-type: x mandatory;
+      }
+      .concept-grid::-webkit-scrollbar { display: none; }
+      .concept-card { flex: 0 0 240px; scroll-snap-align: start; }
+      .concept-card-img { height: 160px; }
+      .concept-card-body { padding: 16px 18px 20px; }
+
+      /* エリアグリッド */
+      .areas-grid {
+        display: flex;
+        overflow-x: auto;
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+        touch-action: pan-x;
+        scrollbar-width: none;
+        gap: 12px;
+        padding-bottom: 12px;
+        margin-top: 24px;
+        scroll-snap-type: x mandatory;
+      }
+      .areas-grid::-webkit-scrollbar { display: none; }
+      .area-card { flex: 0 0 185px; padding: 16px 14px; scroll-snap-align: start; }
+      .area-items li { font-size: 11px; gap: 6px; }
+      .area-items { gap: 6px; padding-top: 14px; }
+
+      /* TOC/TOBグリッド */
+      .toc-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+        overflow-x: unset;
+      }
+      .toc-card { flex: none; padding: 20px 16px; }
+      .toc-num { font-size: 18px; margin-bottom: 12px; }
+      .salon-slideshow { height: 240px; }
+      .new-badge { display: none !important; }
+      .brand-card { flex: 0 0 62vw; }
+      .brand-img { height: 200px; }
+      .toc-cta { margin-top: 24px; }
+
+      /* ブランドスライダー */
+      .brand-slider-btn { display: none; }
+
+      /* フッター */
       .footer-inner { grid-template-columns: 1fr; gap: 24px; }
       .footer-col { text-align: left; }
       .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
       .strip-track img { width: calc(100% / 2); height: 160px; }
-      .divider { max-width: calc(100% - 48px); }
+      .divider { max-width: calc(100% - 40px); }
+    }
 
-      /* グリッドをflex横スクロールに変換（カードサイズはそのまま） */
-      .concept-grid {
-        display: flex;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
-        gap: 12px;
-        padding-bottom: 12px;
-      }
-      .concept-grid::-webkit-scrollbar { display: none; }
-      .concept-card { flex: 0 0 220px; }
+    /* ─── ハンバーガーメニュー ─── */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 36px;
+      height: 36px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      z-index: 301;
+    }
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 1.5px;
+      background: var(--black);
+      border-radius: 2px;
+      transition: all 0.3s ease;
+      transform-origin: center;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
 
-      .areas-grid {
-        display: flex;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
-        gap: 16px;
-        padding-bottom: 12px;
-      }
-      .areas-grid::-webkit-scrollbar { display: none; }
-      .area-card { flex: 0 0 260px; }
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      z-index: 300;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 0;
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+    .mobile-menu.open {
+      display: flex;
+      opacity: 1;
+    }
+    .mobile-menu ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      text-align: center;
+    }
+    .mobile-menu ul li {
+      border-bottom: 1px solid var(--gray-line);
+    }
+    .mobile-menu ul li:first-child {
+      border-top: 1px solid var(--gray-line);
+    }
+    .mobile-menu ul li a {
+      display: block;
+      padding: 20px 48px;
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--black);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+    }
+    .mobile-menu ul li a.nav-cta {
+      color: #0071e3;
+    }
 
-      .toc-grid {
-        display: flex;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
-        gap: 12px;
-        padding-bottom: 12px;
-      }
-      .toc-grid::-webkit-scrollbar { display: none; }
-      .toc-card { flex: 0 0 220px; }
+    @media (max-width: 900px) {
+      .hamburger { display: flex; }
+    }
+
+    @media (max-width: 480px) {
+      /* バナー文字サイズを下げて折り返し防止 */
+      nav { top: 33px; }
+      .hero-bg-text h1 { font-size: clamp(26px, 9vw, 40px); }
+      .concept-card { flex: 0 0 200px; }
+      .area-card { flex: 0 0 200px; }
+      .toc-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
+  <!-- CAMPAIGN BANNER -->
+  <div style="background:#0071e3; color:#fff; text-align:center; padding:10px 16px; font-size:13px; font-weight:500; letter-spacing:0.04em; position:fixed; top:0; left:0; right:0; z-index:200;">
+    <a href="https://jittaikengata.stores.jp/reserve/aooohair/2057428#pageContent" target="_blank" style="color:#fff; text-decoration:none;">5/14(木)開催【ReFaフルコース体験／月1回／限定8枠】↗</a>
+  </div>
+
   <!-- NAV -->
   <nav>
     <a href="#" class="nav-logo">実体験型ストア</a>
     <ul class="nav-links">
-      <li><a href="#concept">コンセプト</a></li>
-      <li><a href="#store">ストアを見る</a></li>
+      <li><a href="#concept">実体験型ストアとは</a></li>
+      <li><a href="#store">サービス内容</a></li>
       <li><a href="#salon">提携美容室</a></li>
-      <li><a href="#brands">ブランド出品について</a></li>
       <li><a href="#store" class="nav-cta">オンラインストア ↗</a></li>
-      <li><a href="#contact" class="nav-cta">お問い合わせ ↗</a></li>
+      <li><a href="https://app.notta.ai/scheduler-share/3684c2d496c94be1bc6e4dda6642ea72" target="_blank" class="nav-cta">お問い合わせ ↗</a></li>
     </ul>
+    <button class="hamburger" id="hamburger" aria-label="メニュー">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
+
+  <!-- モバイルメニュー -->
+  <div class="mobile-menu" id="mobileMenu">
+    <button id="mobileMenuClose" style="position:absolute; top:24px; right:20px; background:none; border:none; cursor:pointer; font-size:24px; color:var(--black); line-height:1; padding:8px;">✕</button>
+    <ul>
+      <li><a href="#concept" class="mobile-link">実体験型ストアとは</a></li>
+      <li><a href="#store" class="mobile-link">サービス内容</a></li>
+      <li><a href="#salon" class="mobile-link">提携美容室</a></li>
+      <li><a href="#store" class="mobile-link nav-cta">オンラインストア ↗</a></li>
+      <li><a href="https://app.notta.ai/scheduler-share/3684c2d496c94be1bc6e4dda6642ea72" target="_blank" class="mobile-link nav-cta">お問い合わせ ↗</a></li>
+    </ul>
+  </div>
 
   <!-- HERO -->
   <section class="hero">
@@ -1230,11 +1374,48 @@
     </div>
   </section>
 
+  <!-- CONCEPT -->
+  <section class="concept" id="concept">
+    <div class="section-inner">
+      <p class="section-label">About</p>
+      <h2 class="section-title" style="font-weight:700;">実体験型ストアとは</h2>
+
+      <div class="concept-grid">
+        <div class="concept-card fade-in">
+          <div class="concept-card-img" style="background-image: url('slide1.png');"></div>
+          <div class="concept-card-body">
+            <div class="concept-num">01</div>
+            <h3>すべて試せる</h3>
+            <p>陳列された全商品を実際に使ってから購入を決められます。美容室での施術中も同様です。</p>
+          </div>
+        </div>
+        <div class="concept-card fade-in">
+          <div class="concept-card-img" style="background-image: url('slide3.png');"></div>
+          <div class="concept-card-body">
+            <div class="concept-num">02</div>
+            <h3>お得に購入できる</h3>
+            <p>正規サロン専売品を手軽な価格で。期間限定のポップアップブランドも随時登場します。</p>
+          </div>
+        </div>
+        <div class="concept-card fade-in">
+          <div class="concept-card-img" style="background-image: url('slide2.png');"></div>
+          <div class="concept-card-body">
+            <div class="concept-num">03</div>
+            <h3>美容室と一体の体験</h3>
+            <p>隣接する Aooo Hair の施術中に商品を試せます。スタイリストが使い方を教えてくれます。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
   <!-- TOB / TOC -->
   <section class="audience" id="brands">
     <div class="section-inner">
       <p class="section-label" style="text-align:center;">Service</p>
-      <h2 class="section-title" style="text-align:center;">サービス内容</h2>
+      <h2 class="section-title" style="text-align:center; font-weight:700;">サービス内容</h2>
 
       <div class="tab-nav">
         <button class="tab-btn active" onclick="switchTab('tob', this)">ブランド（出品）</button>
@@ -1270,7 +1451,7 @@
           </div>
         </div>
         <div class="toc-cta">
-          <a href="#contact" class="btn-blue-outline">オンラインストア</a>
+          <a href="#" style="color: #2563eb; font-size: 15px; font-weight: 500; text-decoration: none;">オンラインストア ↗</a>
         </div>
       </div>
 
@@ -1311,45 +1492,8 @@
           </p>
           <a href="https://app.notta.ai/scheduler-share/3684c2d496c94be1bc6e4dda6642ea72" target="_blank" class="btn-blue-outline">相談する</a>
           <p style="font-size:12px; color:var(--gray-3); margin-top:12px;">
-            ※ メールにてご連絡いただいた後、詳細をご案内します
+            ※ まずはお気軽にご相談ください
           </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <!-- CONCEPT -->
-  <section class="concept" id="concept">
-    <div class="section-inner">
-      <p class="section-label">About</p>
-      <h2 class="section-title">実体験型ストアとは</h2>
-
-      <div class="concept-grid">
-        <div class="concept-card fade-in">
-          <div class="concept-card-img" style="background-image: url('slide1.png');"></div>
-          <div class="concept-card-body">
-            <div class="concept-num">01</div>
-            <h3>すべて試せる</h3>
-            <p>陳列された全商品を実際に使ってから購入を決められます。美容室での施術中も同様です。</p>
-          </div>
-        </div>
-        <div class="concept-card fade-in">
-          <div class="concept-card-img" style="background-image: url('slide2.png');"></div>
-          <div class="concept-card-body">
-            <div class="concept-num">02</div>
-            <h3>美容室と一体の体験</h3>
-            <p>隣接する Aooo Hair の施術中に商品を試せます。スタイリストが使い方を教えてくれます。</p>
-          </div>
-        </div>
-        <div class="concept-card fade-in">
-          <div class="concept-card-img" style="background-image: url('slide3.png');"></div>
-          <div class="concept-card-body">
-            <div class="concept-num">03</div>
-            <h3>お得に購入できる</h3>
-            <p>正規サロン専売品を手軽な価格で。期間限定のポップアップブランドも随時登場します。</p>
-          </div>
         </div>
       </div>
     </div>
@@ -1361,7 +1505,7 @@
   <section style="padding: 96px 48px; background: var(--gray-bg);">
     <div class="section-inner">
       <p class="section-label">Brand</p>
-      <h2 class="section-title">ブランドリスト</h2>
+      <h2 class="section-title" style="font-weight:700;">取り扱いブランド</h2>
 
       <div class="brand-slider-wrap">
         <button class="brand-slider-btn prev" onclick="slideBrands(-1)" aria-label="前へ">
@@ -1412,13 +1556,33 @@
             </div>
           </div>
           <div class="brand-card fade-in">
-            <div class="brand-img" style="background-image: url('o-bron.png');">
-              <div class="brand-name-overlay"><h3>O BRON &amp; HAIR</h3><p>ビューティーケア</p></div>
+            <div class="brand-img" style="background-image: url('oskin.png');">
+              <div class="brand-name-overlay"><h3>O SKIN &amp; HAIR</h3><p>ビューティーケア</p></div>
             </div>
           </div>
           <div class="brand-card fade-in">
             <div class="brand-img" style="background-image: url('arimino.png');">
               <div class="brand-name-overlay"><h3>ARIMINO SPRINAGE</h3><p>サロン専売ヘアケア</p></div>
+            </div>
+          </div>
+          <div class="brand-card fade-in">
+            <div class="brand-img" style="background-image: url('rede.png');">
+              <div class="brand-name-overlay"><h3>Re·De</h3><p>ビューティーデバイス</p></div>
+            </div>
+          </div>
+          <div class="brand-card fade-in">
+            <div class="brand-img" style="background-image: url('orchide.png');">
+              <div class="brand-name-overlay"><h3>Orchidé</h3><p>ヘアオイル・フレグランス</p></div>
+            </div>
+          </div>
+          <div class="brand-card fade-in">
+            <div class="brand-img" style="background-image: url('loretta.png');">
+              <div class="brand-name-overlay"><h3>LORETTA AIMER</h3><p>サロン専売ヘアケア</p></div>
+            </div>
+          </div>
+          <div class="brand-card fade-in">
+            <div class="brand-img" style="background-image: url('hoyu.png');">
+              <div class="brand-name-overlay"><h3>hoyu PROMASTER</h3><p>カラーケアシャンプー</p></div>
             </div>
           </div>
         </div>
@@ -1432,42 +1596,39 @@
   <section id="store" style="padding: 96px 48px; background: var(--gray-bg);">
     <div class="section-inner">
       <p class="section-label">Store</p>
-      <h2 class="section-title">3つのエリア構成</h2>
+      <h2 class="section-title" style="font-weight:700;">3つのエリア構成</h2>
 
       <div class="areas-grid">
         <div class="area-card fade-in">
           <div class="area-tag">Core Line</div>
           <h3>サロン専売品</h3>
-          <p class="area-desc">フックとなるコアライン</p>
+          <p class="area-desc">美容室に行かずに買える</p>
           <ul class="area-items">
             <li>シャンプー・トリートメント</li>
             <li>ヘアケア全般</li>
             <li>ドライヤー等の美容機器</li>
-            <li>プロ愛用の正規品のみ</li>
           </ul>
         </div>
 
         <div class="area-card fade-in">
           <div class="area-tag">Discovery</div>
-          <h3>魅力的な商品</h3>
-          <p class="area-desc">体験で発見できる商品</p>
+          <h3>実体験できる商品</h3>
+          <p class="area-desc">新しい発見や驚きを体験</p>
           <ul class="area-items">
-            <li>ヘアケアと親和性の高い商品</li>
-            <li>EC中心のブランド品</li>
+            <li>EC中心のアイテム</li>
             <li>店舗希少品・限定品</li>
-            <li>試して初めてわかる価値</li>
+            <li>最新のヘアケアや話題のスキンケア等</li>
           </ul>
         </div>
 
         <div class="area-card fade-in">
           <div class="area-tag">Popup</div>
           <h3>POPUPコーナー</h3>
-          <p class="area-desc">話題性・集客装置</p>
+          <p class="area-desc">定期的に入れ替わる</p>
           <ul class="area-items">
             <li>期間限定ブランドの展示</li>
             <li>体験型イベントの開催</li>
             <li>新ブランドの市場テスト</li>
-            <li>定期的に入れ替え</li>
           </ul>
         </div>
       </div>
@@ -1481,40 +1642,38 @@
     <div style="max-width: 1200px; margin: 0 auto; padding: 0 0 48px;">
 
       <!-- ヘッダー行 -->
-      <div style="display: flex; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; gap: 16px; margin-bottom: 16px;">
-        <div>
-          <p style="font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gray-3); margin-bottom: 10px;">提携美容室</p>
-          <h2 style="font-size: clamp(32px, 4vw, 48px); font-weight: 700; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 10px;">Aooo Hair</h2>
-
-          <!-- 評価バッジ -->
-          <div style="display: flex; align-items: center; gap: 8px; flex-wrap: nowrap; margin-bottom: 10px; white-space: nowrap;">
-            <span style="font-size: 13px; font-weight: 900; color: var(--gray-1);">口コミ評価</span>
-            <span style="font-size: 22px; font-weight: 900; color: var(--gray-1); letter-spacing: -0.02em;">4.96</span>
-            <span style="display: inline-flex; gap: 1px; align-items: center; font-size: 17px;">
-              <span style="color: var(--gray-1);">★</span>
-              <span style="color: var(--gray-1);">★</span>
-              <span style="color: var(--gray-1);">★</span>
-              <span style="color: var(--gray-1);">★</span>
-              <span style="background: linear-gradient(to right, var(--gray-1) 50%, var(--gray-4) 50%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">★</span>
-            </span>
-            <span style="font-size: 13px; font-weight: 700; color: var(--gray-3);">（204件）</span>
-          </div>
-
-          <!-- 営業時間 -->
-          <p style="font-size: 13px; color: var(--gray-2);">
-            不定休 &nbsp;|&nbsp; 平日 10:00〜19:00 ／ 土日祝 10:00〜18:00
-          </p>
-        </div>
+      <div style="margin-bottom: 12px;">
+        <p style="font-size: 13px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gray-3); margin-bottom: 10px;">提携美容室</p>
+        <h2 style="font-size: clamp(22px, 2.5vw, 32px); font-weight: 600; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 10px;">Aooo Hair</h2>
 
         <!-- NEWバッジ -->
-        <div style="display: flex; align-items: center; gap: 0; border: 1.5px solid var(--black); border-radius: 30px; overflow: hidden; height: 36px; flex-shrink: 0; margin-top: 4px;">
-          <span style="background: var(--black); color: var(--white); font-size: 12px; font-weight: 700; padding: 0 14px; height: 100%; display: flex; align-items: center; letter-spacing: 0.06em;">NEW</span>
-          <span style="font-size: 12px; font-weight: 600; padding: 0 14px; color: var(--black); letter-spacing: 0.03em;">実体験型ストア</span>
+        <div class="new-badge" style="display: inline-flex; align-items: center; gap: 0; border: 1.5px solid var(--black); border-radius: 30px; overflow: hidden; height: 30px; margin-bottom: 12px;">
+          <span style="background: var(--black); color: var(--white); font-size: 11px; font-weight: 700; padding: 0 12px; height: 100%; display: flex; align-items: center; letter-spacing: 0.06em;">NEW</span>
+          <span style="font-size: 11px; font-weight: 600; padding: 0 12px; color: var(--black); letter-spacing: 0.03em;">実体験型ストア</span>
         </div>
+
+        <!-- 評価バッジ -->
+        <div style="display: flex; align-items: center; gap: 8px; flex-wrap: nowrap; margin-bottom: 10px; white-space: nowrap;">
+          <span style="font-size: 13px; font-weight: 900; color: var(--gray-1);">口コミ評価</span>
+          <span style="font-size: 22px; font-weight: 900; color: var(--gray-1); letter-spacing: -0.02em;">4.96</span>
+          <span style="display: inline-flex; gap: 1px; align-items: center; font-size: 17px;">
+            <span style="color: var(--gray-1);">★</span>
+            <span style="color: var(--gray-1);">★</span>
+            <span style="color: var(--gray-1);">★</span>
+            <span style="color: var(--gray-1);">★</span>
+            <span style="background: linear-gradient(to right, var(--gray-1) 50%, var(--gray-4) 50%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">★</span>
+          </span>
+          <span style="font-size: 13px; font-weight: 700; color: var(--gray-3);">（204件）</span>
+        </div>
+
+        <!-- 営業時間 -->
+        <p style="font-size: 13px; color: var(--gray-2);">
+          不定休 &nbsp;|&nbsp; 平日 10:00〜19:00 ／ 土日祝 10:00〜18:00
+        </p>
       </div>
 
       <!-- 予約リンク -->
-      <a href="https://beauty.hotpepper.jp/slnH000678849/" target="_blank" style="display:inline-flex; align-items:center; gap:6px; font-size:13px; font-weight:500; color:#0071e3; text-decoration:none; margin-bottom: 16px; transition: opacity 0.2s;">
+      <a href="https://beauty.hotpepper.jp/slnH000678849/" target="_blank" style="display:inline-flex; align-items:center; gap:6px; font-size:13px; font-weight:500; color:#0071e3; text-decoration:none; margin-bottom: 0; transition: opacity 0.2s;">
         ホットペッパービューティーで予約する ↗
       </a>
     </div>
@@ -1551,20 +1710,40 @@
       <div class="footer-col">
         <h4>ご利用案内</h4>
         <ul>
-          <li><a href="#brands" onclick="setTimeout(function(){switchTab('toc', document.querySelectorAll('.tab-btn')[0])},100)">お客様の方へ</a></li>
-          <li><a href="#brands" onclick="setTimeout(function(){switchTab('tob', document.querySelectorAll('.tab-btn')[1])},100)">ブランド出品について</a></li>
-          <li><a href="https://beauty.hotpepper.jp/slnH000678849/" target="_blank">Aooohair 予約ページ</a></li>
-          <li><a href="https://takakubomasahiro.com/contact" target="_blank">お問い合わせ</a></li>
+          <li><a href="#concept">実体験型ストアとは</a></li>
+          <li><a href="https://app.notta.ai/scheduler-share/3684c2d496c94be1bc6e4dda6642ea72" target="_blank">ブランド出品について</a></li>
+          <li><a href="https://beauty.hotpepper.jp/slnH000678849/" target="_blank">Aooo Hair 予約</a></li>
+          <li><a href="mailto:takakubo@jittaikengata.com">メールで問い合わせ</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2025 実体験型ストア / Aooohair</span>
-      <a href="https://beauty.hotpepper.jp/slnH000678849/" target="_blank">Aooohair — ホットペッパービューティー</a>
+      <span>© 2026 実体験型ストア　｜　運営：<a href="https://takakubomasahiro.com/" target="_blank" style="color: inherit; text-decoration: none;">高久保デザイン事務所</a></span>
     </div>
   </footer>
 
   <script>
+    // ハンバーガーメニュー
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      mobileMenu.classList.toggle('open');
+      document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+    });
+    document.querySelectorAll('.mobile-link').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('open');
+        mobileMenu.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    });
+    document.getElementById('mobileMenuClose').addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+
     function switchTab(id, btn) {
       document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
       document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
