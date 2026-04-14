@@ -349,7 +349,7 @@
 
     .concept-card-img {
       width: 100%;
-      height: 220px;
+      height: 176px;
       background-size: cover;
       background-position: center;
     }
@@ -489,13 +489,13 @@
 
     .area-tag {
       display: inline-block;
-      font-size: 10px;
+      font-size: 8px;
       font-weight: 700;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.10em;
       text-transform: uppercase;
-      padding: 4px 10px;
+      padding: 2px 7px;
       border-radius: 20px;
-      margin-bottom: 18px;
+      margin-bottom: 14px;
       background: var(--gray-bg);
       color: var(--gray-2);
       border: 1px solid var(--gray-line);
@@ -1187,7 +1187,7 @@
       }
       .concept-grid::-webkit-scrollbar { display: none; }
       .concept-card { flex: 0 0 240px; scroll-snap-align: start; }
-      .concept-card-img { height: 160px; }
+      .concept-card-img { height: 128px; }
       .concept-card-body { padding: 16px 18px 20px; }
 
       /* エリアグリッド */
@@ -1219,6 +1219,11 @@
       .toc-num { font-size: 18px; margin-bottom: 12px; }
       .salon-slideshow { height: 240px; }
       .new-badge { display: none !important; }
+      .brand-section { padding: 40px 20px 48px !important; }
+      .areas-section { padding: 40px 20px 48px !important; }
+      .area-card h3 { font-size: 16px; }
+      .salon-header { padding-bottom: 20px !important; }
+      .salon { padding: 40px 20px 0 !important; }
       .brand-card { flex: 0 0 62vw; }
       .brand-img { height: 200px; }
       .toc-cta { margin-top: 24px; }
@@ -1363,7 +1368,7 @@
       <div class="hero-text-inner">
         <h1>試してから買える、<br>実体験型ストア。</h1>
         <p class="hero-sub">
-          サロン専売品から最新のヘアケア、話題のスキンケアまで。<br />
+          正規サロン専売品から最新のヘアケア、話題のスキンケアまで。<br />
           併設された美容室で、すべての商品を自然な流れで試せます。
         </p>
         <div class="hero-buttons">
@@ -1386,7 +1391,7 @@
           <div class="concept-card-body">
             <div class="concept-num">01</div>
             <h3>すべて試せる</h3>
-            <p>陳列された全商品を実際に使ってから購入を決められます。美容室での施術中も同様です。</p>
+            <p>ストアで選んだ商品を、併設の美容室でそのまま試せます。施術の中で、自然に体験ができます。</p>
           </div>
         </div>
         <div class="concept-card fade-in">
@@ -1394,15 +1399,15 @@
           <div class="concept-card-body">
             <div class="concept-num">02</div>
             <h3>お得に購入できる</h3>
-            <p>正規サロン専売品を手軽な価格で。期間限定のポップアップブランドも随時登場します。</p>
+            <p>美容室に行かずに、正規サロン専売品が購入できます。なお、特別価格でのご案内もしています。</p>
           </div>
         </div>
         <div class="concept-card fade-in">
           <div class="concept-card-img" style="background-image: url('slide2.png');"></div>
           <div class="concept-card-body">
             <div class="concept-num">03</div>
-            <h3>美容室と一体の体験</h3>
-            <p>隣接する Aooo Hair の施術中に商品を試せます。スタイリストが使い方を教えてくれます。</p>
+            <h3>プロによる特別体験</h3>
+            <p>月に一度、体験に特化した限定イベントを開催。体験後の特典もご用意しています。</p>
           </div>
         </div>
       </div>
@@ -1488,10 +1493,10 @@
           <h3 style="font-size:22px; font-weight:600; letter-spacing:-0.02em; margin-bottom:12px;">出品・展示のご相談</h3>
           <p style="font-size:14px; color:var(--gray-2); line-height:1.75; margin-bottom:20px;">
             ブランドの商品カテゴリ・ご希望の展示スタイルをお知らせください。<br>
-            サロン専売品・ECブランド・スタートアップブランドなど、幅広くご相談を受け付けています。
+            ヘアケア・スキンケア・ガジェット製品・軽飲食など、幅広くご相談を受け付けています。
           </p>
           <a href="https://app.notta.ai/scheduler-share/3684c2d496c94be1bc6e4dda6642ea72" target="_blank" class="btn-blue-outline">相談する</a>
-          <p style="font-size:12px; color:var(--gray-3); margin-top:12px;">
+          <p style="font-size:12px; color:var(--gray-3); margin-top:20px;">
             ※ まずはお気軽にご相談ください
           </p>
         </div>
@@ -1502,7 +1507,7 @@
   <div class="divider"></div>
 
   <!-- BRAND LIST -->
-  <section style="padding: 96px 48px; background: var(--gray-bg);">
+  <section class="brand-section" style="padding: 96px 48px; background: var(--gray-bg);">
     <div class="section-inner">
       <p class="section-label">Brand</p>
       <h2 class="section-title" style="font-weight:700;">取り扱いブランド</h2>
@@ -1593,7 +1598,7 @@
   <div class="divider"></div>
 
   <!-- STORE AREAS -->
-  <section id="store" style="padding: 96px 48px; background: var(--gray-bg);">
+  <section id="store" class="areas-section" style="padding: 96px 48px; background: var(--gray-bg);">
     <div class="section-inner">
       <p class="section-label">Store</p>
       <h2 class="section-title" style="font-weight:700;">3つのエリア構成</h2>
@@ -1601,7 +1606,7 @@
       <div class="areas-grid">
         <div class="area-card fade-in">
           <div class="area-tag">Core Line</div>
-          <h3>サロン専売品</h3>
+          <h3>正規サロン専売品</h3>
           <p class="area-desc">美容室に行かずに買える</p>
           <ul class="area-items">
             <li>シャンプー・トリートメント</li>
@@ -1617,13 +1622,13 @@
           <ul class="area-items">
             <li>EC中心のアイテム</li>
             <li>店舗希少品・限定品</li>
-            <li>最新のヘアケアや話題のスキンケア等</li>
+            <li>最新の製品や話題のアイテム</li>
           </ul>
         </div>
 
         <div class="area-card fade-in">
           <div class="area-tag">Popup</div>
-          <h3>POPUPコーナー</h3>
+          <h3>期間限定POPUP</h3>
           <p class="area-desc">定期的に入れ替わる</p>
           <ul class="area-items">
             <li>期間限定ブランドの展示</li>
@@ -1639,37 +1644,39 @@
 
   <!-- SALON -->
   <section class="salon" id="salon" style="padding: 80px 48px 0; background: var(--gray-bg);">
-    <div style="max-width: 1200px; margin: 0 auto; padding: 0 0 48px;">
+    <div class="salon-header" style="max-width: 1200px; margin: 0 auto; padding: 0 0 48px;">
 
       <!-- ヘッダー行 -->
-      <div style="margin-bottom: 12px;">
-        <p style="font-size: 13px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gray-3); margin-bottom: 10px;">提携美容室</p>
-        <h2 style="font-size: clamp(22px, 2.5vw, 32px); font-weight: 600; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 10px;">Aooo Hair</h2>
+      <div style="display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 12px;">
+        <div>
+          <p style="font-size: 13px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gray-3); margin-bottom: 10px;">提携美容室</p>
+          <h2 style="font-size: clamp(22px, 2.5vw, 32px); font-weight: 600; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 10px;">Aooo Hair</h2>
+
+          <!-- 評価バッジ -->
+          <div style="display: flex; align-items: center; gap: 8px; flex-wrap: nowrap; margin-bottom: 10px; white-space: nowrap;">
+            <span style="font-size: 13px; font-weight: 900; color: var(--black);">口コミ評価</span>
+            <span style="font-size: 22px; font-weight: 900; color: var(--black); letter-spacing: -0.02em;">4.96</span>
+            <span style="display: inline-flex; gap: 1px; align-items: center; font-size: 17px;">
+              <span style="color: var(--black);">★</span>
+              <span style="color: var(--black);">★</span>
+              <span style="color: var(--black);">★</span>
+              <span style="color: var(--black);">★</span>
+              <span style="background: linear-gradient(to right, var(--black) 50%, var(--gray-4) 50%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">★</span>
+            </span>
+            <span style="font-size: 13px; font-weight: 700; color: var(--gray-3);">（204件）</span>
+          </div>
+
+          <!-- 営業時間 -->
+          <p style="font-size: 13px; color: var(--gray-2);">
+            不定休 &nbsp;|&nbsp; 平日 10:00〜19:00 ／ 土日祝 10:00〜18:00
+          </p>
+        </div>
 
         <!-- NEWバッジ -->
-        <div class="new-badge" style="display: inline-flex; align-items: center; gap: 0; border: 1.5px solid var(--black); border-radius: 30px; overflow: hidden; height: 30px; margin-bottom: 12px;">
+        <div class="new-badge" style="display: inline-flex; align-items: center; gap: 0; border: 1.5px solid var(--black); border-radius: 30px; overflow: hidden; height: 30px; flex-shrink: 0;">
           <span style="background: var(--black); color: var(--white); font-size: 11px; font-weight: 700; padding: 0 12px; height: 100%; display: flex; align-items: center; letter-spacing: 0.06em;">NEW</span>
           <span style="font-size: 11px; font-weight: 600; padding: 0 12px; color: var(--black); letter-spacing: 0.03em;">実体験型ストア</span>
         </div>
-
-        <!-- 評価バッジ -->
-        <div style="display: flex; align-items: center; gap: 8px; flex-wrap: nowrap; margin-bottom: 10px; white-space: nowrap;">
-          <span style="font-size: 13px; font-weight: 900; color: var(--gray-1);">口コミ評価</span>
-          <span style="font-size: 22px; font-weight: 900; color: var(--gray-1); letter-spacing: -0.02em;">4.96</span>
-          <span style="display: inline-flex; gap: 1px; align-items: center; font-size: 17px;">
-            <span style="color: var(--gray-1);">★</span>
-            <span style="color: var(--gray-1);">★</span>
-            <span style="color: var(--gray-1);">★</span>
-            <span style="color: var(--gray-1);">★</span>
-            <span style="background: linear-gradient(to right, var(--gray-1) 50%, var(--gray-4) 50%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">★</span>
-          </span>
-          <span style="font-size: 13px; font-weight: 700; color: var(--gray-3);">（204件）</span>
-        </div>
-
-        <!-- 営業時間 -->
-        <p style="font-size: 13px; color: var(--gray-2);">
-          不定休 &nbsp;|&nbsp; 平日 10:00〜19:00 ／ 土日祝 10:00〜18:00
-        </p>
       </div>
 
       <!-- 予約リンク -->
