@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>実体験型ストア｜レビューよりも感覚で選ぶストア</title>
+  <meta name="google" content="notranslate" />
   <meta name="description" content="正規サロン専売品から、最新のヘアケアや話題のスキンケアまで。気になった商品を手に取り、美容室でそのまま体験できます。" />
   <meta property="og:title" content="実体験型ストア｜レビューよりも感覚で選ぶストア" />
   <meta property="og:description" content="正規サロン専売品から、最新のヘアケアや話題のスキンケアまで。気になった商品を手に取り、美容室でそのまま体験できます。" />
@@ -140,7 +141,7 @@
     }
 
     .hero-bg-text h1 {
-      font-size: clamp(36px, 5.5vw, 72px);
+      font-size: clamp(28px, 3.8vw, 54px);
       font-weight: 600;
       line-height: 1.25;
       letter-spacing: -0.025em;
@@ -474,6 +475,31 @@
     .brand-slider-btn.prev { left: -22px; }
     .brand-slider-btn.next { right: -22px; }
     .brand-slider-btn svg { width: 20px; height: 20px; color: var(--black); }
+
+    /* ─── STORE PHOTO LAYOUT ─── */
+    .store-3col {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 16px;
+      margin-top: 32px;
+    }
+    .store-3col-item img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      border-radius: 16px;
+      display: block;
+    }
+    .store-3col-item img.map-img {
+      object-fit: contain;
+      background: #fff;
+    }
+    .store-3col-label {
+      margin-top: 10px;
+      font-size: 13px;
+      color: var(--gray-3);
+      letter-spacing: 0.04em;
+    }
 
     /* ─── STORE AREAS ─── */
     .areas-grid {
@@ -1169,7 +1195,7 @@
 
       /* ヒーロー */
       .hero-bg-text { padding: 32px 20px 60px; }
-      .hero-bg-text h1 { font-size: clamp(28px, 8vw, 44px); line-height: 1.3; }
+      .hero-bg-text h1 { font-size: clamp(22px, 6vw, 34px); line-height: 1.3; }
       .hero-bg-text .hero-sub { font-size: 12px; line-height: 1.8; margin-bottom: 24px; }
       .hero-buttons { flex-direction: column; gap: 16px; align-items: flex-start; }
       .btn-hero, .btn-hero-filled { font-size: 13px; padding: 10px 20px; }
@@ -1235,6 +1261,8 @@
       .salon-header { padding-bottom: 20px !important; }
       .salon { padding: 40px 20px 0 !important; }
       .salon h2 { font-size: 28px !important; }
+      .store-photo-section { padding: 40px 20px 48px !important; }
+      .store-3col { grid-template-columns: 1fr !important; gap: 12px !important; }
       .brand-card { flex: 0 0 62vw; }
       .brand-img { height: 200px; }
       .toc-cta { margin-top: 24px; }
@@ -1328,7 +1356,7 @@
     @media (max-width: 480px) {
       /* バナー文字サイズを下げて折り返し防止 */
       nav { top: 33px; }
-      .hero-bg-text h1 { font-size: clamp(26px, 9vw, 40px); }
+      .hero-bg-text h1 { font-size: clamp(22px, 7.5vw, 36px); }
       .concept-card { flex: 0 0 200px; }
       .area-card { flex: 0 0 200px; }
       .toc-grid { grid-template-columns: 1fr; }
@@ -1377,13 +1405,13 @@
     <div class="hero-overlay"></div>
     <div class="hero-bg-text fade-in">
       <div class="hero-text-inner">
-        <h1>レビューよりも、<br>感覚で選ぶストア。</h1>
+        <h1>美容室に行かずに、<br>正規サロン専売品が<br>買えるストア</h1>
         <p class="hero-sub">
           正規サロン専売品から、最新のヘアケアや話題のスキンケアまで。<br />
           気になった商品を手に取り、美容室でそのまま体験できます。
         </p>
         <div class="hero-buttons">
-          <a href="https://online.jittaikengata.com" target="_blank" class="btn-hero-filled">ストアを見る ↗</a>
+          <a href="https://online.jittaikengata.com" target="_blank" class="btn-hero-filled">完全紹介制のECサイト ↗</a>
           <a href="#brands" class="btn-hero">ブランド出品について</a>
         </div>
       </div>
@@ -1816,6 +1844,12 @@
       var slider = document.getElementById('brandSlider');
       var cardWidth = slider.querySelector('.brand-card').offsetWidth + 16;
       slider.scrollBy({ left: dir * cardWidth, behavior: 'smooth' });
+    }
+    function movePeek(dir) {
+      var track = document.getElementById('storePeekTrack');
+      var slide = track.querySelector('.store-peek-slide');
+      var slideWidth = slide.offsetWidth + 20;
+      track.scrollBy({ left: dir * slideWidth, behavior: 'smooth' });
     }
   </script>
 
