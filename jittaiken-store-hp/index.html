@@ -141,7 +141,7 @@
     }
 
     .hero-bg-text h1 {
-      font-size: clamp(28px, 3.8vw, 54px);
+      font-size: clamp(24px, 3.2vw, 46px);
       font-weight: 700;
       line-height: 1.25;
       letter-spacing: -0.025em;
@@ -966,17 +966,17 @@
       align-items: center;
       gap: 6px;
       padding: 18px 22px;
-      border: 1.5px solid #0071e3;
+      border: 1.5px solid #111111;
       border-radius: 30px;
       font-size: 14px;
       font-weight: 500;
       line-height: 1;
       color: #fff;
-      background: #0071e3;
+      background: #111111;
       text-decoration: none;
       transition: background 0.2s, color 0.2s;
     }
-    .btn-hero-filled:hover { background: #0077ed; }
+    .btn-hero-filled:hover { background: #333333; }
 
     .btn-hero {
       display: inline-flex;
@@ -1002,18 +1002,18 @@
       align-items: center;
       gap: 6px;
       padding: 10px 22px;
-      border: 1.5px solid #0071e3;
+      border: 1.5px solid #111111;
       border-radius: 30px;
       font-size: 14px;
       font-weight: 400;
-      background: #0071e3;
+      background: #111111;
       color: #fff;
       text-decoration: none;
       transition: background 0.2s, opacity 0.2s;
     }
 
     .btn-blue-outline:hover {
-      background: #0077ed;
+      background: #333333;
       opacity: 0.88;
     }
 
@@ -1366,7 +1366,7 @@
 <body>
 
   <!-- CAMPAIGN BANNER -->
-  <div style="background:#0071e3; color:#fff; text-align:center; padding:10px 16px; font-size:13px; font-weight:500; letter-spacing:0.04em; position:fixed; top:0; left:0; right:0; z-index:200;">
+  <div style="background:#111111; color:#fff; text-align:center; padding:10px 16px; font-size:13px; font-weight:500; letter-spacing:0.04em; position:fixed; top:0; left:0; right:0; z-index:200;">
     <a href="https://jittaikengata.stores.jp/reserve/aooohair/2057428#pageContent" target="_blank" style="color:#fff; text-decoration:none;">【ReFaフルコース体験／月1回／限定8枠】6/18(木)開催 ↗</a>
   </div>
 
@@ -1405,14 +1405,13 @@
     <div class="hero-overlay"></div>
     <div class="hero-bg-text fade-in">
       <div class="hero-text-inner">
-        <h1>サロン<span style="letter-spacing:0.02em; margin-left:0.04em;">一体型</span>の、<br>新しい<span style="letter-spacing:-0.08em;">セレクトショップ</span>。</h1>
+        <h1>サロン<span style="letter-spacing:0.02em; margin-left:0.04em;">一体型</span>の、<br>新しい<span style="letter-spacing:-0.08em;">セレクトショップ</span></h1>
         <p class="hero-sub">
           気になった商品は、美容室でそのまま体験できます。<br />
           サロン専売品をはじめ、プロ厳選のアイテムを取り揃えています。
         </p>
         <div class="hero-buttons">
-          <a href="https://online.jittaikengata.com" target="_blank" class="btn-hero-filled"><span style="display:inline-flex; align-items:center; gap:0px;"><span style="position:relative; top:-1px;">オンラインストア</span><span style="font-size:0.75em; letter-spacing:0.05em; vertical-align:middle; margin-left:2px;">（完全招待制）</span></span><span style="margin-left:-2px;">↗</span></a>
-          <a href="#brands" class="btn-hero">ブランド出品について</a>
+          <a href="https://online.jittaikengata.com" target="_blank" class="btn-hero-filled" style="background:#0071e3; border-color:#0071e3;"><span style="display:inline-flex; align-items:center; gap:0px;"><span style="position:relative; top:-1px;">オンラインストア</span><span style="font-size:0.75em; letter-spacing:0.05em; vertical-align:middle; margin-left:2px;">（完全招待制）</span></span><span style="margin-left:-2px;">↗</span></a>
         </div>
       </div>
     </div>
@@ -1462,12 +1461,12 @@
       <h2 class="section-title" style="text-align:center; font-weight:700;">サービス内容</h2>
 
       <div class="tab-nav">
-        <button class="tab-btn active" onclick="switchTab('tob', this)">ブランド（出品）</button>
-        <button class="tab-btn" onclick="switchTab('toc', this)">お客様（購入）</button>
+        <button class="tab-btn active" onclick="switchTab('toc', this)">お客様（購入）</button>
+        <button class="tab-btn" onclick="switchTab('tob', this)">ブランド（出品）</button>
       </div>
 
       <!-- toC -->
-      <div class="tab-content" id="tab-toc">
+      <div class="tab-content active" id="tab-toc">
         <div class="toc-grid">
           <div class="toc-card fade-in">
             <div class="toc-num">01</div>
@@ -1500,7 +1499,7 @@
       </div>
 
       <!-- toB -->
-      <div class="tab-content active" id="tab-tob">
+      <div class="tab-content" id="tab-tob">
         <div class="toc-grid">
           <div class="toc-card fade-in">
             <div class="toc-num">01</div>
